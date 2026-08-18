@@ -83,18 +83,18 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
                 </div>
               </div>
               
-              {/* Bottom Headquarters & Leadership Info */}
+              {/* Bottom Executive Profile Info */}
               <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-950/90 backdrop-blur-md border border-slate-800 text-left shadow-2xl">
-                <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-1">
-                  <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                  <span>Ikoyi, Lagos State, Nigeria</span>
-                </div>
                 <span className="text-sm font-heading font-bold text-white block">
                   {COMPANY_CONFIG.legalName}
                 </span>
-                <span className="text-[11px] text-slate-400 block mt-0.5 font-sans">
-                  {COMPANY_CONFIG.address}
+                <span className="text-[11px] text-amber-400 font-mono block mt-0.5">
+                  {COMPANY_CONFIG.primaryPositioning}
                 </span>
+                <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-1">
+                  <MapPin className="w-3 h-3 text-slate-500 shrink-0" />
+                  <span>Ikoyi, Lagos State, Nigeria</span>
+                </div>
               </div>
 
             </div>
