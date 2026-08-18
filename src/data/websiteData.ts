@@ -483,7 +483,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     clientType: 'Hospitality & Luxury Hotels',
     category: 'Featured Automation Concept',
     tag: 'FEATURED AUTOMATION ARCHITECTURE — HOSPITALITY',
-    image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
+    image: '/hotel-capitol.jpg',
     problem: 'Manual telephone dispatch caused front-desk congestion, room service order mixups, and 45-minute average housekeeping turnaround delays during peak occupancy.',
     solution: 'Engineered a unified neural workflow connecting WhatsApp Business Cloud, Opera PMS, and duty staff smartwatch terminals with sub-minute automated queue dispatch.',
     technologies: ['WhatsApp Business API', 'Opera PMS Connector', 'Smartwatch Queue Engine', 'Multi-Agent Triage'],
