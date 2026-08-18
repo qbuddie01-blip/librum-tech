@@ -72,14 +72,14 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ onRouteC
         <div className="max-w-5xl mx-auto rounded-3xl bg-slate-900/90 border border-amber-500/25 overflow-hidden shadow-2xl backdrop-blur-2xl">
           
           {/* Header Banner */}
-          <div className="relative h-64 sm:h-72 w-full overflow-hidden">
+          <div className="relative h-64 sm:h-80 w-full overflow-hidden group">
             <img 
               src={activeStudy.image} 
               alt={activeStudy.title} 
-              className="w-full h-full object-cover filter brightness-75"
+              className="w-full h-full object-cover object-center filter brightness-95 group-hover:scale-105 transition-transform duration-700"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
             
             <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-left">
               <div>
