@@ -1,6 +1,6 @@
 import React from 'react';
 import type { PageRoute } from '../types';
-import { Layers, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Layers, CheckCircle2, ArrowRight, Sparkles, Cpu, Zap, Database } from 'lucide-react';
 
 interface SolutionsPageProps {
   onRouteChange: (route: PageRoute) => void;
@@ -94,34 +94,87 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onRouteChange }) =
           ))}
         </div>
 
-        {/* Integration Architecture Wall */}
-        <div className="rounded-3xl bg-gradient-to-b from-slate-900 to-blue-950/80 border border-amber-500/25 p-8 sm:p-12 text-center">
-          <span className="text-xs font-mono text-amber-400 uppercase tracking-widest block font-bold mb-2">
-            ZERO-DISRUPTION PHILOSOPHY
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white">
-            We Connect With What You Already Use
-          </h2>
-          <p className="mt-3 text-xs sm:text-sm text-slate-300 max-w-xl mx-auto leading-relaxed">
-            Our integration middleware speaks native protocols with SAP, Oracle NetSuite, Opera PMS, Microsoft Dynamics 365, Odoo, QuickBooks, POS registers, and SQL databases.
-          </p>
-
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            {['SAP ERP', 'Oracle NetSuite', 'Opera PMS', 'Microsoft Dynamics 365', 'Odoo Enterprise', 'Salesforce CRM', 'QuickBooks Enterprise', 'Custom PostgreSQL / MySQL'].map((item, i) => (
-              <span key={i} className="px-4 py-2 rounded-xl bg-slate-950/90 border border-slate-800 text-xs font-mono text-slate-200">
-                {item}
-              </span>
-            ))}
+        {/* ── ZERO-DISRUPTION PHILOSOPHY CARD WITH HUMAN-AI TOUCH BACKGROUND & FUTURISTIC EFFECTS ── */}
+        <div className="relative rounded-3xl border-2 border-amber-500/40 hover:border-amber-400/80 p-8 sm:p-14 text-center overflow-hidden shadow-[0_0_60px_rgba(245,158,11,0.18)] transition-all duration-500 group">
+          
+          {/* Background Image: Human Fingertip Touching AI Robot Fingertip */}
+          <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <img 
+              src="/human-ai-touch.jpg" 
+              alt="Human-Machine Neural Symbiosis" 
+              className="w-full h-full object-cover object-center filter brightness-90 contrast-110 saturate-110 group-hover:scale-105 transition-transform duration-1000"
+              loading="lazy"
+            />
+            {/* Deep Glassmorphic Dark Blending Overlays for 100% Readability */}
+            <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[6px]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/70 to-[#020617]/90" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/90 via-transparent to-[#020617]/90" />
           </div>
 
-          <div className="mt-10">
-            <button
-              onClick={() => onRouteChange('schedule-demo')}
-              className="px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-xl shadow-amber-500/25 transition-all cursor-pointer"
-            >
-              SCHEDULE AN INTEGRATION AUDIT →
-            </button>
+          {/* Futuristic Border Shimmer & Corner Accents */}
+          <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent animate-shimmer pointer-events-none z-10" />
+          <div className="absolute top-3 left-3 w-4 h-4 border-t-2 border-l-2 border-amber-400 pointer-events-none z-10" />
+          <div className="absolute top-3 right-3 w-4 h-4 border-t-2 border-r-2 border-amber-400 pointer-events-none z-10" />
+          <div className="absolute bottom-3 left-3 w-4 h-4 border-b-2 border-l-2 border-amber-400 pointer-events-none z-10" />
+          <div className="absolute bottom-3 right-3 w-4 h-4 border-b-2 border-r-2 border-amber-400 pointer-events-none z-10" />
+
+          {/* Ambient Synaptic Glow Center */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-500/20 rounded-full blur-[140px] pointer-events-none z-0 animate-pulse-glow" />
+
+          {/* Card Foreground Content */}
+          <div className="relative z-10 max-w-3xl mx-auto">
+            
+            {/* Tag Badge */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-950/90 border border-amber-500/40 text-xs font-mono text-amber-300 uppercase tracking-widest font-bold mb-4 shadow-xl backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+              <span>ZERO-DISRUPTION PHILOSOPHY</span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight drop-shadow-md">
+              We Connect With What You Already Use
+            </h2>
+
+            {/* Subheadline */}
+            <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl mx-auto drop-shadow">
+              Our integration middleware speaks native protocols with SAP, Oracle NetSuite, Opera PMS, Microsoft Dynamics 365, Odoo, QuickBooks, POS registers, and SQL databases.
+            </p>
+
+            {/* Platform Badges */}
+            <div className="mt-8 flex flex-wrap justify-center gap-2.5 sm:gap-3">
+              {[
+                { name: 'SAP ERP', icon: <Database className="w-3 h-3 text-amber-400" /> },
+                { name: 'Oracle NetSuite', icon: <Cpu className="w-3 h-3 text-blue-400" /> },
+                { name: 'Opera PMS', icon: <Zap className="w-3 h-3 text-amber-400" /> },
+                { name: 'Microsoft Dynamics 365', icon: <Database className="w-3 h-3 text-cyan-400" /> },
+                { name: 'Odoo Enterprise', icon: <Cpu className="w-3 h-3 text-purple-400" /> },
+                { name: 'Salesforce CRM', icon: <Zap className="w-3 h-3 text-blue-400" /> },
+                { name: 'QuickBooks Enterprise', icon: <Database className="w-3 h-3 text-emerald-400" /> },
+                { name: 'Custom PostgreSQL / MySQL', icon: <Cpu className="w-3 h-3 text-amber-400" /> }
+              ].map((item, i) => (
+                <span 
+                  key={i} 
+                  className="px-4 py-2 rounded-xl bg-slate-950/90 border border-slate-700/90 text-xs font-mono text-slate-100 shadow-lg backdrop-blur-md flex items-center gap-2 hover:border-amber-400/60 transition-colors"
+                >
+                  {item.icon}
+                  <span>{item.name}</span>
+                </span>
+              ))}
+            </div>
+
+            {/* Action CTA Button */}
+            <div className="mt-10">
+              <button
+                onClick={() => onRouteChange('schedule-demo')}
+                className="px-9 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-bold text-xs sm:text-sm uppercase tracking-wider shadow-2xl shadow-amber-500/30 hover:scale-105 transition-all cursor-pointer inline-flex items-center gap-2 border border-amber-300/40"
+              >
+                <span>SCHEDULE AN INTEGRATION AUDIT</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
           </div>
+
         </div>
 
       </div>
