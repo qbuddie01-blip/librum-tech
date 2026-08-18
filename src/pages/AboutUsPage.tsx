@@ -1,6 +1,6 @@
 import React from 'react';
 import type { PageRoute } from '../types';
-import { Sparkles, MapPin, CheckCircle2, ArrowRight, ShieldCheck, Target, Users, Building } from 'lucide-react';
+import { Sparkles, MapPin, CheckCircle2, ArrowRight, ShieldCheck, Target, Users, Building, Award } from 'lucide-react';
 import { COMPANY_CONFIG } from '../config/constants';
 
 interface AboutUsPageProps {
@@ -33,13 +33,18 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
 
   return (
     <div className="pt-28 pb-24 relative overflow-hidden bg-tech-mesh">
+      
+      {/* Ambient Glow Orbs */}
+      <div className="absolute top-1/4 right-1/4 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/3 left-10 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[150px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400 mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>OUR MISSION & STORY</span>
+            <span>OUR MISSION & LEADERSHIP</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-white tracking-tight leading-tight">
@@ -52,32 +57,46 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
           </p>
         </div>
 
-        {/* Story Grid with Executive Narrative */}
+        {/* Story Grid with Executive Profile & Narrative */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-20">
           
-          {/* Left Visual Card (5 cols) */}
+          {/* Left Visual Card with Executive Profile (5 cols) */}
           <div className="lg:col-span-5 relative">
-            <div className="relative rounded-3xl overflow-hidden border border-amber-500/30 shadow-2xl">
-              <img 
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1000&q=80" 
-                alt="Librum Technologies Leadership and Engineering Hub" 
-                className="w-full h-auto object-cover filter brightness-95"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+            <div className="relative rounded-3xl overflow-hidden border-2 border-amber-500/40 shadow-2xl group bg-slate-900">
               
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-slate-950/90 backdrop-blur-md border border-slate-800 text-left">
+              {/* Executive Portrait Image */}
+              <div className="relative h-[440px] sm:h-[480px] w-full overflow-hidden">
+                <img 
+                  src="/leadership-profile.jpg" 
+                  alt="Librum Technologies Executive Leadership" 
+                  className="w-full h-full object-cover object-top filter brightness-100 contrast-105 group-hover:scale-105 transition-transform duration-700"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                
+                {/* Top Badge Overlay */}
+                <div className="absolute top-4 left-4">
+                  <span className="px-3.5 py-1.5 rounded-full bg-slate-950/90 border border-amber-500/50 text-[10px] font-mono text-amber-300 font-bold uppercase tracking-wider shadow-lg backdrop-blur-md flex items-center gap-1.5">
+                    <Award className="w-3.5 h-3.5 text-amber-400" />
+                    <span>EXECUTIVE LEADERSHIP</span>
+                  </span>
+                </div>
+              </div>
+              
+              {/* Bottom Headquarters & Leadership Info */}
+              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-slate-950/90 backdrop-blur-md border border-slate-800 text-left shadow-2xl">
                 <div className="flex items-center gap-2 text-xs font-mono text-amber-400 mb-1">
-                  <MapPin className="w-3.5 h-3.5" />
+                  <MapPin className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                   <span>Ikoyi, Lagos State, Nigeria</span>
                 </div>
                 <span className="text-sm font-heading font-bold text-white block">
-                  {COMPANY_CONFIG.legalName} Headquarters
+                  {COMPANY_CONFIG.legalName}
                 </span>
-                <span className="text-[11px] text-slate-400 block mt-0.5">
+                <span className="text-[11px] text-slate-400 block mt-0.5 font-sans">
                   {COMPANY_CONFIG.address}
                 </span>
               </div>
+
             </div>
           </div>
 
