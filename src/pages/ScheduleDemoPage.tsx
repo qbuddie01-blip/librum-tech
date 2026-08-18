@@ -1,0 +1,357 @@
+import React, { useState } from 'react';
+import type { PageRoute, DemoBookingForm } from '../types';
+import { Calendar, CheckCircle2, Building, Mail, Phone, User, ShieldCheck, RotateCcw } from 'lucide-react';
+
+interface ScheduleDemoPageProps {
+  onRouteChange: (route: PageRoute) => void;
+  preselectedIndustry?: string;
+}
+
+export const ScheduleDemoPage: React.FC<ScheduleDemoPageProps> = ({ onRouteChange, preselectedIndustry }) => {
+  const [formData, setFormData] = useState<DemoBookingForm>({
+    name: '',
+    organization: '',
+    email: '',
+    phone: '',
+    industry: preselectedIndustry || 'hospitality',
+    preferredDate: '',
+    preferredTime: '10:00 AM (WAT)',
+    automationFocus: 'Hotel Operations',
+    teamSize: '10 - 50 employees',
+    additionalNotes: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formError, setFormError] = useState<string | null>(null);
+
+  const industryOptions = [
+    { value: 'hospitality', label: 'Hotel & Hospitality Operations' },
+    { value: 'healthcare', label: 'Hospitals & Clinical Workflows' },
+    { value: 'education', label: 'Schools & Educational Academies' },
+    { value: 'retail', label: 'Retail Stores & Supermarkets' },
+    { value: 'enterprise', label: 'Corporate & Enterprise Logistics' },
+    { value: 'custom', label: 'Custom Proprietary Workflows' },
+  ];
+
+  const timeSlots = [
+    'Morning: 09:00 AM – 12:00 PM (WAT)',
+    'Afternoon: 01:00 PM – 04:00 PM (WAT)',
+    'Evening: 04:00 PM – 06:00 PM (WAT)'
+  ];
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormError(null);
+
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.organization.trim()) {
+      setFormError('Please fill in all required contact and organization details.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+      window.scrollTo({ top: 100, behavior: 'smooth' });
+    }, 1000);
+  };
+
+  const handleReset = () => {
+    setIsSubmitted(false);
+    setFormError(null);
+    setFormData({
+      name: '',
+      organization: '',
+      email: '',
+      phone: '',
+      industry: 'hospitality',
+      preferredDate: '',
+      preferredTime: 'Morning: 09:00 AM – 12:00 PM (WAT)',
+      automationFocus: 'Hotel Operations',
+      teamSize: '10 - 50 employees',
+      additionalNotes: ''
+    });
+  };
+
+  return (
+    <div className="pt-28 pb-24 relative overflow-hidden bg-tech-mesh">
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        {/* Header */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400 mb-4">
+            <Calendar className="w-3.5 h-3.5" />
+            <span>EXECUTIVE CONSULTATION & DEMO</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl font-heading font-extrabold text-white tracking-tight">
+            REQUEST A <span className="gold-gradient-text">LIVE DEMO</span>
+          </h1>
+          <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+            Request a tailored demonstration with our senior automation architects. We will analyze your existing workflows and present a live simulated automation architecture for your industry.
+          </p>
+        </div>
+
+        {/* Confirmation State or Form */}
+        {isSubmitted ? (
+          <div className="rounded-3xl bg-slate-900/95 border-2 border-amber-400/80 p-8 sm:p-12 shadow-2xl backdrop-blur-2xl text-center animate-fadeIn">
+            <div className="w-16 h-16 rounded-full bg-amber-500/20 border border-amber-400 flex items-center justify-center mx-auto mb-6">
+              <CheckCircle2 className="w-9 h-9 text-amber-400" />
+            </div>
+
+            <span className="px-3.5 py-1 rounded-full bg-slate-950 border border-amber-500/40 text-xs font-mono text-amber-300 tracking-wider uppercase mb-3 inline-block font-semibold">
+              DEMO REQUEST RECEIVED
+            </span>
+
+            <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white mt-2">
+              Thank you, {formData.name}.
+            </h2>
+            
+            <p className="mt-3 text-slate-300 text-sm max-w-xl mx-auto leading-relaxed">
+              Our enterprise solutions team in Ikoyi, Lagos has received your demonstration inquiry. A solutions architect will review your operational requirements and contact you via email ({formData.email}) and phone ({formData.phone}) to confirm your preferred schedule.
+            </p>
+
+            <div className="mt-8 p-5 rounded-2xl bg-slate-950/80 border border-slate-800 max-w-md mx-auto text-left text-xs font-mono text-slate-300 space-y-2">
+              <div className="flex justify-between border-b border-slate-800 pb-1.5">
+                <span className="text-slate-400">Organization:</span>
+                <span className="text-white font-bold">{formData.organization}</span>
+              </div>
+              <div className="flex justify-between border-b border-slate-800 pb-1.5">
+                <span className="text-slate-400">Industry:</span>
+                <span className="text-amber-400 font-bold">{formData.industry.toUpperCase()}</span>
+              </div>
+              <div className="flex justify-between border-b border-slate-800 pb-1.5">
+                <span className="text-slate-400">Preferred Window:</span>
+                <span className="text-white">{formData.preferredTime}</span>
+              </div>
+              {formData.preferredDate && (
+                <div className="flex justify-between border-b border-slate-800 pb-1.5">
+                  <span className="text-slate-400">Preferred Date:</span>
+                  <span className="text-white">{formData.preferredDate}</span>
+                </div>
+              )}
+              <div className="flex justify-between">
+                <span className="text-slate-400">Office Location:</span>
+                <span className="text-white">Ikoyi, Lagos State</span>
+              </div>
+            </div>
+
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button
+                onClick={() => onRouteChange('home')}
+                className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+              >
+                Return to Homepage
+              </button>
+              <button
+                onClick={handleReset}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-heading font-semibold text-xs uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5"
+              >
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>Submit Another Request</span>
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="rounded-3xl bg-slate-900/90 border border-amber-500/30 p-6 sm:p-10 shadow-2xl backdrop-blur-2xl">
+            
+            {formError && (
+              <div className="mb-6 p-4 rounded-xl bg-red-950/60 border border-red-500/40 text-red-300 text-xs font-mono text-left">
+                {formError}
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-6 text-left">
+              
+              {/* Row 1: Name & Organization */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="demo-name" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                    Your Full Name *
+                  </label>
+                  <div className="relative">
+                    <User className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      id="demo-name"
+                      type="text"
+                      required
+                      placeholder="e.g. Oluwaseun Adeleke"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="demo-organization" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                    Company / Organization *
+                  </label>
+                  <div className="relative">
+                    <Building className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      id="demo-organization"
+                      type="text"
+                      required
+                      placeholder="e.g. Victoria Bay Hotels & Suites"
+                      value={formData.organization}
+                      onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                      className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 2: Email & Phone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="demo-email" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                    Corporate Email *
+                  </label>
+                  <div className="relative">
+                    <Mail className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      id="demo-email"
+                      type="email"
+                      required
+                      placeholder="e.g. o.adeleke@company.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label htmlFor="demo-phone" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                    Phone Number (WhatsApp Preferred) *
+                  </label>
+                  <div className="relative">
+                    <Phone className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                    <input
+                      id="demo-phone"
+                      type="tel"
+                      required
+                      placeholder="e.g. +234 813 848 8697"
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Row 3: Industry & Organization Size */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="demo-industry" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                    Industry Sector *
+                  </label>
+                  <select
+                    id="demo-industry"
+                    value={formData.industry}
+                    onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none cursor-pointer"
+                  >
+                    {industryOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>
+                        {opt.label}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="demo-teamsize" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                    Organization Size
+                  </label>
+                  <select
+                    id="demo-teamsize"
+                    value={formData.teamSize}
+                    onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none cursor-pointer"
+                  >
+                    <option value="1 - 10 employees">1 - 10 employees</option>
+                    <option value="10 - 50 employees">10 - 50 employees</option>
+                    <option value="50 - 250 employees">50 - 250 employees</option>
+                    <option value="250+ employees">250+ enterprise employees</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Row 4: Preferred Date & Time Window */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label htmlFor="demo-date" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                    Preferred Demonstration Date
+                  </label>
+                  <input
+                    id="demo-date"
+                    type="date"
+                    value={formData.preferredDate}
+                    onChange={(e) => setFormData({ ...formData, preferredDate: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="demo-timewindow" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                    Preferred Time Window (WAT)
+                  </label>
+                  <select
+                    id="demo-timewindow"
+                    value={formData.preferredTime}
+                    onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none cursor-pointer"
+                  >
+                    {timeSlots.map((ts) => (
+                      <option key={ts} value={ts}>
+                        {ts}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Row 5: Automation Focus */}
+              <div>
+                <label htmlFor="demo-notes" className="text-xs font-mono uppercase text-slate-300 font-bold block mb-1.5">
+                  What workflows would you like to automate?
+                </label>
+                <textarea
+                  id="demo-notes"
+                  rows={3}
+                  placeholder="Describe your current operational bottlenecks (e.g., guest check-in, patient registration, multi-store supplier reorders, invoice approval chains)..."
+                  value={formData.additionalNotes}
+                  onChange={(e) => setFormData({ ...formData, additionalNotes: e.target.value })}
+                  className="w-full p-4 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none"
+                />
+              </div>
+
+              <div className="flex items-center gap-2 text-xs font-mono text-slate-400 pt-1">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>NDA & Confidentiality Protected. We never disclose your proprietary workflows.</span>
+              </div>
+
+              <div className="pt-3">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-bold text-sm uppercase tracking-wider shadow-xl shadow-amber-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                >
+                  <span>{isSubmitting ? 'TRANSMITTING INQUIRY...' : 'REQUEST A DEMO →'}</span>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        )}
+
+      </div>
+    </div>
+  );
+};
