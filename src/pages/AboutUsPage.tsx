@@ -115,7 +115,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
             </p>
 
             <p className="text-sm text-slate-300 leading-relaxed">
-              Whether orchestrating guest requests across a luxury hotel, automating emergency patient triage in clinical facilities, syncing inventory across multi-branch supermarkets, or eliminating bureaucratic delays in corporate approval chains—Librum builds the intelligent neural bridge that ties people, software, and actions together.
+              Whether orchestrating guest requests across a luxury hotel, automating emergency patient triage in clinical facilities, syncing inventory across multi-branch supermarkets, or eliminating bureaucratic delays in corporate approval chains, Librum builds the intelligent neural bridge that ties people, software, and actions together.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
