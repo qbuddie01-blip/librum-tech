@@ -1,6 +1,7 @@
 import React from 'react';
 import type { PageRoute } from '../types';
 import { Layers, CheckCircle2, ArrowRight, Sparkles, Cpu, Zap, Database } from 'lucide-react';
+import humanAiTouchImg from '../assets/human-ai-touch.jpg';
 
 interface SolutionsPageProps {
   onRouteChange: (route: PageRoute) => void;
@@ -100,9 +101,9 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onRouteChange }) =
           {/* Background Image: Human Fingertip Touching AI Robot Fingertip */}
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
             <img 
-              src="/human-ai-touch.jpg" 
+              src={humanAiTouchImg} 
               alt="Human-Machine Neural Symbiosis" 
-              className="w-full h-full object-cover object-center filter brightness-90 contrast-110 saturate-110 group-hover:scale-105 transition-transform duration-1000"
+              className="w-full h-full object-cover object-center filter brightness-95 contrast-115 saturate-110 group-hover:scale-105 transition-transform duration-1000"
               loading="lazy"
             />
             {/* Deep Glassmorphic Dark Blending Overlays for 100% Readability */}

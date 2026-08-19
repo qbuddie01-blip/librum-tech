@@ -7,6 +7,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 import { COMPANY_CONFIG } from '../config/constants';
+import dd1Img from '../assets/dd1.jpg';
 
 interface PositioningSectionProps {
   onRouteChange: (route: PageRoute) => void;
@@ -46,15 +47,15 @@ export const PositioningSection: React.FC<PositioningSectionProps> = ({ onRouteC
       {/* ── BACKGROUND LAYER: dd1 AI WORKFLOW MATRIX WITH SEAMLESS BLEND ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
         <img 
-          src="/dd1.jpg" 
+          src={dd1Img} 
           alt="Librum Intelligent Enterprise Workflow Matrix"
-          className="w-full h-full object-cover object-center filter brightness-[0.70] contrast-115 saturate-110"
+          className="w-full h-full object-cover object-center filter brightness-90 contrast-115 saturate-110 opacity-70 sm:opacity-80"
           loading="lazy"
         />
         {/* Seamless Dark Cosmic Blending Overlays for 100% Readability across Web, Tablet & Mobile */}
-        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[5px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/65 to-[#020617]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/95 via-transparent to-[#020617]/95" />
+        <div className="absolute inset-0 bg-slate-950/65 backdrop-blur-[3px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/50 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/90 via-transparent to-[#020617]/90" />
         
         {/* Ambient Synaptic Glow Orbs */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/15 rounded-full blur-[160px] animate-pulse-glow" />

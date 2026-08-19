@@ -2,6 +2,7 @@ import React from 'react';
 import type { PageRoute } from '../types';
 import { Sparkles, MapPin, CheckCircle2, ArrowRight, ShieldCheck, Target, Users, Building, Award } from 'lucide-react';
 import { COMPANY_CONFIG } from '../config/constants';
+import leadershipImg from '../assets/leadership-profile.jpg';
 
 interface AboutUsPageProps {
   onRouteChange: (route: PageRoute) => void;
@@ -67,7 +68,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
               {/* Executive Portrait Image */}
               <div className="relative h-[440px] sm:h-[480px] w-full overflow-hidden">
                 <img 
-                  src="/leadership-profile.jpg" 
+                  src={leadershipImg} 
                   alt="Librum Technologies Executive Leadership" 
                   className="w-full h-full object-cover object-top filter brightness-100 contrast-105 group-hover:scale-105 transition-transform duration-700"
                   loading="eager"

@@ -13,6 +13,7 @@ import {
   Cpu
 } from 'lucide-react';
 import { COMPANY_CONFIG } from '../config/constants';
+import robotHeadImg from '../assets/ai-robot-head.jpg';
 
 interface HeroSectionProps {
   onRouteChange: (route: PageRoute) => void;
@@ -66,9 +67,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
         
         {/* Cinematic AI Robot Head Image Container with Fully Responsive Positioning */}
-        <div className="absolute top-2 sm:top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 lg:right-[-2%] w-[340px] sm:w-[500px] md:w-[700px] lg:w-[1000px] xl:w-[1250px] h-[55vh] sm:h-full max-h-[900px] opacity-45 sm:opacity-50 lg:opacity-60 transition-opacity duration-1000 animate-float flex justify-center sm:justify-end">
+        <div className="absolute top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 lg:right-[-2%] w-[340px] sm:w-[520px] md:w-[720px] lg:w-[1000px] xl:w-[1250px] h-[55vh] sm:h-full max-h-[900px] opacity-75 sm:opacity-80 lg:opacity-85 transition-opacity duration-1000 animate-float flex justify-center sm:justify-end">
           <img 
-            src="/ai-robot-head.jpg" 
+            src={robotHeadImg} 
             alt="Librum AI Cybernetic Neural Core"
             className="w-full h-full max-w-[360px] sm:max-w-none object-contain object-top sm:object-right-top filter brightness-110 contrast-125 saturate-110 drop-shadow-[0_0_80px_rgba(245,158,11,0.25)]"
             loading="eager"

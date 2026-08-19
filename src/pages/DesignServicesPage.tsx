@@ -2,6 +2,7 @@ import React from 'react';
 import type { PageRoute } from '../types';
 import { DesignServicesSection } from '../components/DesignServicesSection';
 import { Palette, ArrowRight, Smartphone, CheckCircle2 } from 'lucide-react';
+import uiUxHeroImg from '../assets/ui-ux-design-hero.jpg';
 
 interface DesignServicesPageProps {
   onRouteChange: (route: PageRoute) => void;
@@ -86,7 +87,7 @@ export const DesignServicesPage: React.FC<DesignServicesPageProps> = ({ onRouteC
             <div className="lg:col-span-6 relative">
               <div className="relative rounded-2xl overflow-hidden border border-amber-500/30 shadow-2xl group">
                 <img 
-                  src="/ui-ux-design-hero.jpg" 
+                  src={uiUxHeroImg} 
                   alt="Librum UI/UX Digital Design Mockup & Design System"
                   className="w-full h-64 sm:h-72 object-cover filter brightness-95 group-hover:scale-105 transition-transform duration-700"
                   loading="eager"

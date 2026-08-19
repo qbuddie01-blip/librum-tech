@@ -11,6 +11,7 @@ import {
   ShieldCheck
 } from 'lucide-react';
 import { COMPANY_CONFIG } from '../config/constants';
+import mackImg from '../assets/mack.jpg';
 
 interface AutomationArchitectureSectionProps {
   onRouteChange: (route: PageRoute) => void;
@@ -61,15 +62,15 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
       {/* ── BACKGROUND LAYER: mack AI PCB NEURAL BRAIN WITH SEAMLESS COSMIC BLEND ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
         <img 
-          src="/mack.jpg" 
+          src={mackImg} 
           alt="Librum Neural Circuit Architecture"
-          className="w-full h-full object-cover object-center filter brightness-[0.65] contrast-120 saturate-110"
+          className="w-full h-full object-cover object-center filter brightness-90 contrast-120 saturate-110 opacity-70 sm:opacity-80"
           loading="lazy"
         />
         {/* Seamless Dark Cosmic Blending Overlays for 100% Readability Across Mobile, Tablet & Desktop */}
-        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[5px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/65 to-[#020617]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/95 via-transparent to-[#020617]/95" />
+        <div className="absolute inset-0 bg-slate-950/65 backdrop-blur-[3px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/50 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/90 via-transparent to-[#020617]/90" />
         
         {/* Ambient Neural Core Glow Orbs */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/15 rounded-full blur-[160px] animate-pulse-glow" />

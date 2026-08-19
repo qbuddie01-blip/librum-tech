@@ -2,6 +2,7 @@ import React from 'react';
 import type { PageRoute } from '../types';
 import { ArrowRight, Phone, Mail, Sparkles, Shield, Clock } from 'lucide-react';
 import { COMPANY_CONFIG } from '../config/constants';
+import back10Img from '../assets/back-10.jpg';
 
 interface FinalCtaSectionProps {
   onRouteChange: (route: PageRoute) => void;
@@ -14,15 +15,15 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onRouteChange 
       {/* ── BACKGROUND LAYER: back-10 DIGITAL NEURAL INTELLIGENCE SILHOUETTE WITH SEAMLESS COSMIC BLEND ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
         <img 
-          src="/back-10.jpg" 
+          src={back10Img} 
           alt="Librum Neural AI Transformation Core"
-          className="w-full h-full object-cover object-center filter brightness-[0.70] contrast-120 saturate-110"
+          className="w-full h-full object-cover object-center filter brightness-90 contrast-120 saturate-110 opacity-70 sm:opacity-80"
           loading="lazy"
         />
         {/* Seamless Dark Cosmic Blending Overlays for 100% Readability Across Mobile, Tablet & Desktop */}
-        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[5px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/65 to-[#020617]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/95 via-transparent to-[#020617]/95" />
+        <div className="absolute inset-0 bg-slate-950/65 backdrop-blur-[3px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/50 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/90 via-transparent to-[#020617]/90" />
         
         {/* Ambient Neural Core Glow Orbs */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[550px] bg-amber-500/15 rounded-full blur-[160px] animate-pulse-glow" />

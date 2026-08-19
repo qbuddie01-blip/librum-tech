@@ -1,6 +1,7 @@
 import React from 'react';
 import type { PageRoute } from '../types';
 import { Cpu, Workflow, Database, Network, ShieldCheck, UserCheck, ArrowRight, Zap } from 'lucide-react';
+import back16Img from '../assets/back-16.jpg';
 
 interface AiAutomationCoreSectionProps {
   onRouteChange: (route: PageRoute) => void;
@@ -52,15 +53,15 @@ export const AiAutomationCoreSection: React.FC<AiAutomationCoreSectionProps> = (
       {/* ── BACKGROUND LAYER: back-16 AI SILICON CIRCUIT BOARD WITH SEAMLESS COSMIC BLEND ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
         <img 
-          src="/back-16.jpg" 
+          src={back16Img} 
           alt="Librum AI Silicon Core & Neural Circuits"
-          className="w-full h-full object-cover object-center filter brightness-[0.65] contrast-120 saturate-110"
+          className="w-full h-full object-cover object-center filter brightness-90 contrast-120 saturate-110 opacity-70 sm:opacity-80"
           loading="lazy"
         />
         {/* Seamless Dark Cosmic Blending Overlays for 100% Readability Across Mobile, Tablet & Desktop */}
-        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[5px]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/65 to-[#020617]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/95 via-transparent to-[#020617]/95" />
+        <div className="absolute inset-0 bg-slate-950/65 backdrop-blur-[3px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/50 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/90 via-transparent to-[#020617]/90" />
         
         {/* Ambient Neural Core Glow Orbs */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/15 rounded-full blur-[160px] animate-pulse-glow" />

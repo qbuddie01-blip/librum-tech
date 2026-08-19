@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { DESIGN_SERVICES } from '../data/websiteData';
 import type { PageRoute } from '../types';
 import { Layout, Globe, Palette, Layers, CheckCircle2, ArrowRight, Sparkles, Smartphone, Eye } from 'lucide-react';
+import uiUxHeroImg from '../assets/ui-ux-design-hero.jpg';
 
 interface DesignServicesSectionProps {
   onRouteChange: (route: PageRoute) => void;
@@ -60,20 +61,20 @@ export const DesignServicesSection: React.FC<DesignServicesSectionProps> = ({ on
                 }`}
               >
                 {getServiceIcon(srv.icon)}
-                <span>{srv.title.replace('ENTERPRISE ', '')}</span>
+                <span>{srv.title}</span>
               </button>
             );
           })}
         </div>
 
-        {/* Active Service Showcase Card */}
-        <div className="max-w-6xl mx-auto rounded-3xl bg-slate-900/90 border border-slate-800 p-6 sm:p-10 shadow-2xl backdrop-blur-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Detailed Service Card (2-Col Layout) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
           
-          {/* Left Column: Details (6 cols) */}
-          <div className="lg:col-span-6 text-left space-y-5">
+          {/* Left Column: Details & Deliverables (6 cols) */}
+          <div className="lg:col-span-6 p-8 sm:p-10 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl text-left space-y-6">
             <div>
-              <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold block mb-1">
-                LIBRUM DIGITAL DESIGN STUDIO
+              <span className="text-xs font-mono text-blue-400 font-bold uppercase tracking-wider block mb-1">
+                Capability 0{DESIGN_SERVICES.findIndex(s => s.id === activeTab) + 1} // Active
               </span>
               <h3 className="text-2xl sm:text-3xl font-heading font-extrabold text-white">
                 {selectedService.title}
@@ -128,7 +129,7 @@ export const DesignServicesSection: React.FC<DesignServicesSectionProps> = ({ on
               {/* UI/UX Hero Image Container */}
               <div className="relative h-72 sm:h-80 w-full overflow-hidden">
                 <img 
-                  src="/ui-ux-design-hero.jpg" 
+                  src={uiUxHeroImg} 
                   alt="Librum UI/UX Digital Design Mockup & Design System"
                   className="w-full h-full object-cover object-center filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
