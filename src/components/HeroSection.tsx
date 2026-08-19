@@ -62,37 +62,38 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
   return (
     <section className="relative min-h-[96vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#020617] via-[#040919] to-[#020617] pt-28 pb-20">
       
-      {/* ── BACKGROUND LAYER: STUNNING AI ROBOT HEAD WITH SEAMLESS COSMIC BLEND ── */}
+      {/* ── BACKGROUND LAYER: STUNNING AI ROBOT HEAD OPTIMIZED FOR MOBILE, TABLET & DESKTOP ── */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
-        {/* Cinematic AI Robot Head Image */}
-        <div className="absolute top-0 right-0 lg:right-[-5%] w-[800px] sm:w-[1000px] lg:w-[1250px] h-full max-h-[900px] opacity-35 sm:opacity-45 lg:opacity-55 mix-blend-screen transition-opacity duration-1000 animate-float">
+        
+        {/* Cinematic AI Robot Head Image Container with Fully Responsive Positioning */}
+        <div className="absolute top-2 sm:top-0 right-1/2 translate-x-1/2 sm:translate-x-0 sm:right-0 lg:right-[-2%] w-[340px] sm:w-[500px] md:w-[700px] lg:w-[1000px] xl:w-[1250px] h-[55vh] sm:h-full max-h-[900px] opacity-45 sm:opacity-50 lg:opacity-60 transition-opacity duration-1000 animate-float flex justify-center sm:justify-end">
           <img 
             src="/ai-robot-head.jpg" 
             alt="Librum AI Cybernetic Neural Core"
-            className="w-full h-full object-contain object-top filter brightness-110 contrast-125 saturate-110 drop-shadow-[0_0_80px_rgba(245,158,11,0.2)]"
+            className="w-full h-full max-w-[360px] sm:max-w-none object-contain object-top sm:object-right-top filter brightness-110 contrast-125 saturate-110 drop-shadow-[0_0_80px_rgba(245,158,11,0.25)]"
             loading="eager"
           />
         </div>
 
         {/* Ambient Radial Lighting & Neural Glow Orbs */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[550px] bg-amber-500/15 rounded-full blur-[160px] animate-pulse-glow" />
-        <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-blue-600/15 rounded-full blur-[150px] animate-pulse-glow" />
-        <div className="absolute bottom-10 left-10 w-[450px] h-[450px] bg-amber-400/10 rounded-full blur-[140px] animate-float-reverse" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[320px] sm:w-[650px] lg:w-[800px] h-[350px] sm:h-[550px] bg-amber-500/15 rounded-full blur-[120px] sm:blur-[160px] animate-pulse-glow" />
+        <div className="absolute top-1/3 right-1/4 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-blue-600/15 rounded-full blur-[120px] sm:blur-[150px] animate-pulse-glow" />
+        <div className="absolute bottom-10 left-10 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-amber-400/10 rounded-full blur-[100px] sm:blur-[140px] animate-float-reverse" />
 
         {/* Grid Mesh & Cosmic Vignette */}
         <div className="absolute inset-0 bg-grid-gold opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-[#020617]/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/70 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617] via-[#020617]/60 to-transparent" />
       </div>
 
-      {/* ── HERO FOREGROUND CONTENTS (ANIMATED) ── */}
+      {/* ── HERO FOREGROUND CONTENTS (ANIMATED & MOBILE-RESPONSIVE) ── */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Main Hero Header & Copy */}
         <div className="text-center max-w-4xl mx-auto space-y-6">
           
           {/* Animated Strategic Positioning Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/40 text-xs font-mono text-amber-300 shadow-2xl backdrop-blur-md relative overflow-hidden group hover:border-amber-400 transition-all duration-300">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-slate-900/90 border border-amber-500/40 text-[11px] sm:text-xs font-mono text-amber-300 shadow-2xl backdrop-blur-md relative overflow-hidden group hover:border-amber-400 transition-all duration-300">
             {/* Shimmer Light Sweep Effect */}
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full bg-gradient-to-r from-transparent via-amber-400/20 to-transparent transition-transform duration-1000" />
             
@@ -106,7 +107,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
           </div>
 
           {/* Core Approved Headline with Glowing Gradient */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-heading font-extrabold text-white tracking-tight leading-[1.1] drop-shadow-lg">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white tracking-tight leading-[1.15] sm:leading-[1.1] drop-shadow-lg">
             LIBRUM AUTOMATES THE WAY YOUR{' '}
             <span className="gold-gradient-text drop-shadow-[0_0_35px_rgba(245,158,11,0.35)]">
               BUSINESS WORKS.
@@ -114,7 +115,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
           </h1>
 
           {/* Core Approved Subheadline */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto font-sans font-normal leading-relaxed">
+          <p className="text-sm sm:text-lg lg:text-xl text-slate-300 max-w-2xl mx-auto font-sans font-normal leading-relaxed">
             Transform complex business workflows into intelligent, automated systems powered by AI.
           </p>
 
@@ -126,7 +127,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-amber-600 rounded-xl blur opacity-40 group-hover:opacity-100 transition duration-500 group-hover:duration-200 animate-pulse-glow" />
               <button
                 onClick={() => onRouteChange('schedule-demo')}
-                className="relative w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-bold text-sm uppercase tracking-wider shadow-2xl transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
+                className="relative w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-bold text-xs sm:text-sm uppercase tracking-wider shadow-2xl transition-all flex items-center justify-center gap-2 cursor-pointer hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span>{COMPANY_CONFIG.primaryCta}</span>
                 <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-1 transition-transform" />
@@ -136,7 +137,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
             {/* Secondary Action Button with Hologram Play Trigger */}
             <button
               onClick={onOpenSimulation}
-              className="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-900/90 border border-slate-700 hover:border-amber-400/80 text-white font-heading font-semibold text-sm uppercase tracking-wider shadow-xl hover:bg-slate-800/90 transition-all flex items-center justify-center gap-2.5 cursor-pointer backdrop-blur-xl group hover:shadow-[0_0_25px_rgba(245,158,11,0.2)]"
+              className="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-900/90 border border-slate-700 hover:border-amber-400/80 text-white font-heading font-semibold text-xs sm:text-sm uppercase tracking-wider shadow-xl hover:bg-slate-800/90 transition-all flex items-center justify-center gap-2.5 cursor-pointer backdrop-blur-xl group hover:shadow-[0_0_25px_rgba(245,158,11,0.2)]"
             >
               <div className="w-6 h-6 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Play className="w-3 h-3 text-amber-400 fill-amber-400 ml-0.5" />
@@ -148,8 +149,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
         </div>
 
         {/* ── HERO INTERACTIVE VISUALIZATION: ANIMATED WORKFLOW ORCHESTRATION MODEL ── */}
-        <div className="mt-16 max-w-5xl mx-auto">
-          <div className="relative rounded-3xl bg-gradient-to-b from-slate-900/90 via-slate-950/90 to-slate-900/90 border border-amber-500/30 p-6 sm:p-8 shadow-2xl backdrop-blur-2xl overflow-hidden hover:border-amber-500/50 transition-colors duration-500">
+        <div className="mt-14 sm:mt-16 max-w-5xl mx-auto">
+          <div className="relative rounded-3xl bg-gradient-to-b from-slate-900/90 via-slate-950/90 to-slate-900/90 border border-amber-500/30 p-5 sm:p-8 shadow-2xl backdrop-blur-2xl overflow-hidden hover:border-amber-500/50 transition-colors duration-500">
             
             {/* Top Scanning Line Animation */}
             <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent animate-shimmer" />
@@ -168,12 +169,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               </div>
 
               {/* Workflow Sector Selector Tabs */}
-              <div className="flex flex-wrap gap-1.5 bg-slate-950/90 p-1.5 rounded-xl border border-slate-800 shadow-inner">
+              <div className="flex flex-wrap gap-1.5 bg-slate-950/90 p-1.5 rounded-xl border border-slate-800 shadow-inner w-full sm:w-auto justify-between sm:justify-start">
                 {(['hospitality', 'healthcare', 'retail', 'education'] as const).map((tab) => (
                   <button
                     key={tab}
                     onClick={() => setActiveWorkflowTab(tab)}
-                    className={`px-3 py-1 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-300 cursor-pointer ${
+                    className={`flex-1 sm:flex-initial px-3 py-1 rounded-lg text-[11px] sm:text-xs font-mono uppercase tracking-wider transition-all duration-300 cursor-pointer text-center ${
                       activeWorkflowTab === tab
                         ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold shadow-lg shadow-amber-500/20 scale-105'
                         : 'text-slate-400 hover:text-white hover:bg-slate-900'
@@ -185,11 +186,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               </div>
             </div>
 
-            {/* 5-Step Connected Flow Stream (Animated Pipeline) */}
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-3 relative z-10">
+            {/* 5-Step Connected Flow Stream (Animated Pipeline: Responsive Grid) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-3 relative z-10">
               
               {/* Step 1: Customer Request */}
-              <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 text-left hover:-translate-y-0.5">
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 text-left hover:-translate-y-0.5">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono font-bold text-amber-400">01. INGEST</span>
                   {currentWorkflow.icon}
@@ -201,7 +202,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               </div>
 
               {/* Step 2: AI Engine */}
-              <div className="p-4 rounded-xl bg-amber-500/10 border border-amber-500/40 text-left relative overflow-hidden shadow-[0_0_20px_rgba(245,158,11,0.1)] hover:-translate-y-0.5 transition-transform duration-300">
+              <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/40 text-left relative overflow-hidden shadow-[0_0_20px_rgba(245,158,11,0.1)] hover:-translate-y-0.5 transition-transform duration-300">
                 <div className="absolute top-0 right-0 w-8 h-8 bg-amber-400/10 rounded-full blur-sm" />
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono font-bold text-amber-300 flex items-center gap-1">
@@ -217,7 +218,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               </div>
 
               {/* Step 3: Workflow Orchestration */}
-              <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-blue-500/40 transition-all duration-300 text-left hover:-translate-y-0.5">
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-blue-500/40 transition-all duration-300 text-left hover:-translate-y-0.5">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono font-bold text-blue-400">03. DISPATCH</span>
                   <span className="text-[10px] font-mono text-emerald-400 font-bold">&lt; 100ms</span>
@@ -229,7 +230,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               </div>
 
               {/* Step 4: Business Systems */}
-              <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 text-left hover:-translate-y-0.5">
+              <div className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 hover:border-purple-500/40 transition-all duration-300 text-left hover:-translate-y-0.5">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono font-bold text-purple-400">04. SYSTEM SYNC</span>
                   <CheckCircle2 className="w-3.5 h-3.5 text-purple-400" />
@@ -241,7 +242,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               </div>
 
               {/* Step 5: Automated Outcome */}
-              <div className="p-4 rounded-xl bg-emerald-950/40 border border-emerald-500/40 text-left shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-0.5 transition-transform duration-300">
+              <div className="p-4 rounded-2xl bg-emerald-950/40 border border-emerald-500/40 text-left shadow-[0_0_20px_rgba(16,185,129,0.1)] hover:-translate-y-0.5 transition-transform duration-300 sm:col-span-2 md:col-span-1">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-mono font-bold text-emerald-400">05. OUTCOME</span>
                   <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 animate-bounce" />
