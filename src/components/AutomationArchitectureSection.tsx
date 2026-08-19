@@ -56,30 +56,51 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-tech-mesh border-b border-slate-800">
+    <section className="py-24 relative overflow-hidden bg-[#020617] border-b border-slate-800">
+      
+      {/* ── BACKGROUND LAYER: mack AI PCB NEURAL BRAIN WITH SEAMLESS COSMIC BLEND ── */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
+        <img 
+          src="/mack.jpg" 
+          alt="Librum Neural Circuit Architecture"
+          className="w-full h-full object-cover object-center filter brightness-[0.65] contrast-120 saturate-110"
+          loading="lazy"
+        />
+        {/* Seamless Dark Cosmic Blending Overlays for 100% Readability Across Mobile, Tablet & Desktop */}
+        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[5px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/65 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/95 via-transparent to-[#020617]/95" />
+        
+        {/* Ambient Neural Core Glow Orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/15 rounded-full blur-[160px] animate-pulse-glow" />
+        <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-blue-500/10 rounded-full blur-[140px] pointer-events-none" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400 mb-4">
-            <Sparkles className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-xs font-mono text-amber-300 mb-4 shadow-xl backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>ENTERPRISE ARCHITECTURE</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
-            HOW LIBRUM CONNECTS YOUR <span className="gold-gradient-text">ENTIRE ENTERPRISE</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
+            HOW LIBRUM CONNECTS YOUR <span className="gold-gradient-text drop-shadow-[0_0_35px_rgba(245,158,11,0.35)]">ENTIRE ENTERPRISE</span>
           </h2>
-          <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl mx-auto drop-shadow">
             AI is not an isolated chatbot. It is the central nervous system connecting your customers, business systems, duty departments, and operational actions into a unified autonomous pipeline.
           </p>
         </div>
 
-        {/* 5-Stage Orchestration Stream */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-16 relative">
+        {/* 5-Stage Orchestration Stream (Responsive Grid: 1 col on mobile, 2 cols on tablet, 5 cols on desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 mb-16 relative">
           {pipelineTiers.map((tier, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800/90 hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between text-left group shadow-lg"
+              className={`p-6 rounded-3xl bg-slate-900/90 border border-slate-800/90 hover:border-amber-500/50 transition-all duration-300 flex flex-col justify-between text-left group shadow-2xl backdrop-blur-xl hover:-translate-y-1 ${
+                idx === 4 ? 'sm:col-span-2 md:col-span-1' : ''
+              }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -112,7 +133,7 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
         </div>
 
         {/* Technical Guarantee Panel */}
-        <div className="rounded-3xl bg-slate-900/80 border border-slate-800 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 text-left">
+        <div className="rounded-3xl bg-slate-900/90 border border-amber-500/30 p-8 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6 text-left shadow-2xl backdrop-blur-2xl">
           <div className="flex items-center gap-4">
             <div className="p-3.5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 shrink-0">
               <ShieldCheck className="w-8 h-8" />
@@ -129,7 +150,7 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
 
           <button
             onClick={() => onRouteChange('schedule-demo')}
-            className="shrink-0 px-6 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 transition-all flex items-center gap-2 cursor-pointer"
+            className="shrink-0 px-7 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-xl shadow-amber-500/25 transition-all flex items-center gap-2 cursor-pointer hover:scale-105"
           >
             <span>{COMPANY_CONFIG.secondaryCta}</span>
             <ArrowRight className="w-4 h-4" />
