@@ -47,34 +47,53 @@ export const AiAutomationCoreSection: React.FC<AiAutomationCoreSectionProps> = (
   ];
 
   return (
-    <section id="ai-core-section" className="py-24 relative overflow-hidden bg-tech-mesh border-b border-slate-800">
+    <section id="ai-core-section" className="py-24 relative overflow-hidden bg-[#020617] border-b border-slate-800">
+      
+      {/* ── BACKGROUND LAYER: back-16 AI SILICON CIRCUIT BOARD WITH SEAMLESS COSMIC BLEND ── */}
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center">
+        <img 
+          src="/back-16.jpg" 
+          alt="Librum AI Silicon Core & Neural Circuits"
+          className="w-full h-full object-cover object-center filter brightness-[0.65] contrast-120 saturate-110"
+          loading="lazy"
+        />
+        {/* Seamless Dark Cosmic Blending Overlays for 100% Readability Across Mobile, Tablet & Desktop */}
+        <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-[5px]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-slate-950/65 to-[#020617]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020617]/95 via-transparent to-[#020617]/95" />
+        
+        {/* Ambient Neural Core Glow Orbs */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/15 rounded-full blur-[160px] animate-pulse-glow" />
+        <div className="absolute bottom-10 right-10 w-[450px] h-[450px] bg-blue-500/10 rounded-full blur-[140px] pointer-events-none" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400 mb-4">
-            <Zap className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-xs font-mono text-amber-300 mb-4 shadow-xl backdrop-blur-md">
+            <Zap className="w-3.5 h-3.5 text-amber-400" />
             <span>THE NEURAL ENGINE</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight">
-            THE LIBRUM <span className="gold-gradient-text">AI AUTOMATION CORE</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight leading-tight drop-shadow-md">
+            THE LIBRUM <span className="gold-gradient-text drop-shadow-[0_0_35px_rgba(245,158,11,0.35)]">AI AUTOMATION CORE</span>
           </h2>
-          <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="mt-4 text-sm sm:text-base text-slate-200 leading-relaxed max-w-2xl mx-auto drop-shadow">
             Engineered as an autonomous enterprise nervous system. Our multi-agent intelligence layer connects your frontline customer requests directly to core business systems and duty teams.
           </p>
         </div>
 
-        {/* 6 Core Pillars Grid */}
+        {/* 6 Core Pillars Grid (Fully Responsive: 1 col on mobile, 2 cols on tablet, 3 cols on desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12 text-left">
           {corePillars.map((pillar, idx) => (
             <div
               key={idx}
-              className="p-7 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1 shadow-xl flex flex-col justify-between group"
+              className="p-6 sm:p-7 rounded-3xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/50 transition-all duration-300 hover:-translate-y-1 shadow-2xl backdrop-blur-xl flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 group-hover:border-amber-500/30 transition-colors">
+                  <div className="p-2.5 rounded-xl bg-slate-950 border border-slate-800 group-hover:border-amber-500/40 transition-colors">
                     {pillar.icon}
                   </div>
                   <span className="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">
@@ -103,7 +122,7 @@ export const AiAutomationCoreSection: React.FC<AiAutomationCoreSectionProps> = (
         <div className="flex justify-center">
           <button
             onClick={() => onRouteChange('ai-automation')}
-            className="px-6 py-3 rounded-xl bg-slate-900 border border-slate-700 hover:border-amber-400 text-white font-heading font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer hover:bg-slate-800"
+            className="px-7 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700 hover:border-amber-400 text-white font-heading font-semibold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer hover:bg-slate-800 backdrop-blur-md shadow-xl hover:scale-105"
           >
             <span>EXPLORE FULL ARCHITECTURAL STACK</span>
             <ArrowRight className="w-4 h-4 text-amber-400" />
