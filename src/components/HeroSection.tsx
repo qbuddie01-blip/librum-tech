@@ -14,6 +14,7 @@ import {
   ShieldCheck, 
   Clock 
 } from 'lucide-react';
+import heroBgImg from '../assets/hero-bg.jpg';
 
 interface HeroSectionProps {
   onRouteChange: (route: PageRoute) => void;
@@ -63,10 +64,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
   return (
     <section className="relative pt-32 pb-20 bg-white overflow-hidden border-b border-slate-100">
       
+      {/* Hero Background AI Silhouette Graphic with Seamless White Ambient Blend */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 flex items-center justify-center select-none">
+        <img 
+          src={heroBgImg} 
+          alt="" 
+          className="w-full h-full max-w-7xl object-contain object-top opacity-20 sm:opacity-25 mix-blend-multiply pointer-events-none"
+          loading="eager"
+        />
+        {/* Soft Radial and Linear Gradient Overlays for Zero Hard Edges */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-white/70 to-white pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white pointer-events-none" />
+      </div>
+
       {/* Delicate Clean Ambient Light Gradient */}
-      <div className="absolute top-0 inset-x-0 h-96 bg-gradient-to-b from-blue-50/50 via-slate-50/30 to-transparent pointer-events-none" />
-      <div className="absolute -top-24 right-1/4 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-1/3 left-10 w-80 h-80 bg-blue-100/30 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-96 bg-gradient-to-b from-blue-50/40 via-slate-50/20 to-transparent pointer-events-none" />
+      <div className="absolute -top-24 right-1/4 w-96 h-96 bg-amber-100/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-80 h-80 bg-blue-100/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
