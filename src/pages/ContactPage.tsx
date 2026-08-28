@@ -76,7 +76,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onRouteChange }) => {
             Connect with <span className="text-blue-600">Librum</span>
           </h1>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Ready to transform your business operations with autonomous AI workflows? Connect with our senior automation team in Ikoyi, Lagos.
+            Ready to transform your business operations with intelligent AI workflows? Connect with our senior automation team in Ikoyi, Lagos.
           </p>
         </div>
 
@@ -92,7 +92,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onRouteChange }) => {
                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-xs font-mono font-bold text-slate-700">Direct Enterprise Inquiry</span>
               </div>
-              <span className="text-[10px] font-mono text-blue-700 font-semibold bg-blue-50 px-2 py-0.5 rounded-full">NDPR PROTECTED</span>
+              <span className="text-[10px] font-mono text-blue-700 font-semibold bg-blue-50 px-2 py-0.5 rounded-full">CONFIDENTIAL INQUIRY</span>
             </div>
 
             {formError && (
@@ -365,7 +365,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onRouteChange }) => {
               <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-600">
                 <span className="text-slate-900 font-semibold block mb-1">Office Hours:</span>
                 Monday – Friday: 08:00 AM – 06:00 PM (WAT)<br />
-                24/7 Emergency Support for Enterprise SLAs.
+                Dedicated Support for Enterprise Operations.
               </div>
             </div>
 

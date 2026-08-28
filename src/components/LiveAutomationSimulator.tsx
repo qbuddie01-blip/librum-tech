@@ -47,7 +47,7 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
     setIsCompleted(false);
     setCurrentStepIndex(0);
     setExecutionLog([
-      { step: 1, text: `[TRIGGER] ${activeScenario.initialTrigger}`, time: '0ms' }
+      { step: 1, text: `[TRIGGER] ${activeScenario.initialTrigger}`, time: 'Step 1' }
     ]);
 
     const steps = activeScenario.steps;
@@ -62,7 +62,7 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
           { 
             step: stepIdx + 2, 
             text: `[${current.label.toUpperCase()}] ${current.actor} → ${current.action}`, 
-            time: `${(stepIdx + 1) * 120}ms` 
+            time: `Step ${stepIdx + 2}` 
           }
         ]);
         stepIdx++;
@@ -74,8 +74,8 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
           ...prev,
           { 
             step: steps.length + 2, 
-            text: `[COMPLETED] Workflow verified & ledger synchronized without manual intervention.`, 
-            time: `${(steps.length + 1) * 120}ms` 
+            text: `[COMPLETED] Workflow verified and system records updated.`, 
+            time: 'Done' 
           }
         ]);
       }
@@ -111,7 +111,7 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
             See how workflows <span className="text-blue-600">execute</span>
           </h2>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Experience how Librum’s multi-agent automation engines process complex business scenarios in real-time. Select an industry scenario below and trigger the live simulated pipeline.
+            Explore how automated workflows process multi-step business scenarios. Select an industry scenario below to view the simulated process.
           </p>
 
           <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 max-w-2xl text-left">
@@ -182,7 +182,7 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
                 }`}
               >
                 <Play className={`w-3.5 h-3.5 ${isRunning ? 'animate-pulse' : ''}`} />
-                <span>{isRunning ? 'Executing...' : 'Run Simulation'}</span>
+                <span>{isRunning ? 'Processing...' : 'Run Simulation'}</span>
               </button>
 
               <button
@@ -249,22 +249,22 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
             </div>
           </div>
 
-          {/* Telemetry Log Terminal */}
+          {/* Simulation Log Terminal */}
           <div className="rounded-2xl bg-slate-900 border border-slate-800 p-4 font-mono text-xs text-slate-300 text-left">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
               <span className="text-[11px] text-slate-400 uppercase tracking-wider flex items-center gap-1.5 font-semibold">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span>Live Execution Telemetry</span>
+                <span>Simulation Progress</span>
               </span>
               <span className="text-[10px] text-slate-500">
-                LIBRUM SIMULATION PROTOCOL
+                SIMULATION CONSOLE
               </span>
             </div>
 
             <div className="space-y-1.5 max-h-36 overflow-y-auto pr-2">
               {executionLog.length === 0 ? (
                 <div className="text-slate-500 italic">
-                  Press "Run Simulation" above to watch automated packet dispatch...
+                  Click "Run Simulation" above to observe the automated workflow steps...
                 </div>
               ) : (
                 executionLog.map((log, i) => (
@@ -280,7 +280,7 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
               <div className="mt-4 p-3.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-fadeIn">
                 <div className="flex items-center gap-2 text-emerald-300 text-xs">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Simulated Workflow Completed: Zero Manual Intervention Required.</span>
+                  <span>Simulated Workflow Completed: Illustrative Automated Execution.</span>
                 </div>
                 <button
                   onClick={onScheduleDemo}

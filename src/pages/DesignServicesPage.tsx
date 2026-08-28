@@ -11,7 +11,7 @@ interface DesignServicesPageProps {
 export const DesignServicesPage: React.FC<DesignServicesPageProps> = ({ onRouteChange }) => {
   const designPrinciples = [
     {
-      title: 'Cognitive Velocity',
+      title: 'Clarity & Usability',
       desc: 'Interfaces designed to minimize operational fatigue and reduce human error rates in fast-paced commercial environments.'
     },
     {
@@ -20,11 +20,11 @@ export const DesignServicesPage: React.FC<DesignServicesPageProps> = ({ onRouteC
     },
     {
       title: 'High-Impact Typography & Contrast',
-      desc: 'Clean, legible typography using Plus Jakarta Sans and Inter with WCAG AAA accessibility contrast scores.'
+      desc: 'Clean, legible typography using Plus Jakarta Sans and Inter with accessible contrast standards.'
     },
     {
-      title: 'Frictionless Mobile Terminals',
-      desc: 'Purpose-built touch experiences designed for on-the-move frontline staff, concierges, doctors, and warehouse orderlies.'
+      title: 'Intuitive Mobile Interfaces',
+      desc: 'Purpose-built touch experiences designed for on-the-move duty staff, concierges, clinical personnel, and operations managers.'
     }
   ];
 
@@ -47,7 +47,7 @@ export const DesignServicesPage: React.FC<DesignServicesPageProps> = ({ onRouteC
             UI/UX & digital <span className="text-blue-600">product design</span>
           </h1>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            We believe that powerful AI automation is only as effective as the human interfaces connecting your people. We craft clean, cinematic digital products that elevate your brand and simplify operational work.
+            We believe that powerful AI automation is only as effective as the human interfaces connecting your people. We craft clean, modern digital products that elevate your brand and simplify operational work.
           </p>
 
           {/* Hero Feature Banner (Clean White Card) */}
@@ -57,10 +57,10 @@ export const DesignServicesPage: React.FC<DesignServicesPageProps> = ({ onRouteC
                 FLAGSHIP DESIGN CAPABILITY
               </span>
               <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-950">
-                Human-Centered Frontline & Executive Terminals
+                Human-Centered Operational & Executive Interfaces
               </h2>
               <p className="text-sm text-slate-600 leading-relaxed">
-                From fast-moving hotel concierge smartwatches to hospital trauma intake tablets and multi-branch inventory control dashboards, our design system reduces human error by over 60%.
+                From fast-moving hotel concierge apps to hospital intake tablets and multi-branch inventory control dashboards, our design system helps minimize manual data errors and accelerate onboarding.
               </p>
 
               <div className="grid grid-cols-2 gap-2.5 pt-2">
@@ -70,15 +70,15 @@ export const DesignServicesPage: React.FC<DesignServicesPageProps> = ({ onRouteC
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-700">
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                  <span>WCAG AAA Contrast</span>
+                  <span>Accessible Contrast</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-700">
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                  <span>Sub-Second Response</span>
+                  <span>Fast, Responsive UI</span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-slate-700">
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                  <span>React 19 Native Code</span>
+                  <span>React 19 Modern Code</span>
                 </div>
               </div>
             </div>

@@ -60,7 +60,7 @@ export interface CaseStudy {
   clientType: string;
   tag: string;
   isConceptBlueprint?: boolean;
-  category: 'Verified Case Study' | 'Featured Automation Concept' | 'Automation Demonstration';
+  category: 'Verified Case Study' | 'Featured Automation Concept' | 'Featured Solution Concept' | 'Illustrative Automation Scenario' | 'Automation Demonstration';
   problem: string;
   solution: string;
   results: {

@@ -204,11 +204,11 @@ export const RoiCalculatorSection: React.FC<RoiCalculatorSectionProps> = ({ onRo
               <div className="space-y-2 text-xs text-slate-600 pt-1">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Sub-second routine data-entry automation</span>
+                  <span>Automated routine data entry and validation</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                  <span>Zero staff layoffs: focus staff on high-value operations</span>
+                  <span>Reallocate staff time to strategic client and operational tasks</span>
                 </div>
               </div>
             </div>

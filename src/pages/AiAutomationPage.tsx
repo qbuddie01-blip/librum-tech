@@ -20,25 +20,25 @@ export const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onRouteChang
     {
       layer: 'LAYER 01',
       name: 'Omnichannel Ingestion Gateway',
-      desc: 'Ingests structured and unstructured data from WhatsApp Business API, webhooks, ERP events, IoT sensors, customer emails, and mobile terminals in real time.',
+      desc: 'Ingests structured and unstructured data from WhatsApp Business API, webhooks, ERP events, customer emails, and mobile interfaces in real time.',
       icon: <Network className="w-5 h-5 text-blue-600" />
     },
     {
       layer: 'LAYER 02',
-      name: 'Autonomous Multi-Agent AI Core',
-      desc: 'Parses complex natural language intents, scores urgency, validates business constraints, and orchestrates multi-agent tasks concurrently without human bottlenecks.',
+      name: 'Multi-Agent AI Engine',
+      desc: 'Parses complex natural language intents, evaluates business rules, and coordinates tasks concurrently across departments.',
       icon: <Cpu className="w-5 h-5 text-purple-600" />
     },
     {
       layer: 'LAYER 03',
       name: 'Dynamic Workflow & Routing Matrix',
-      desc: 'Dispatches instructions directly to duty staff smartwatches, ERP ledger endpoints, kitchen POS systems, or departmental queues with sub-minute SLAs.',
+      desc: 'Dispatches instructions directly to duty staff mobile devices, ERP endpoints, POS systems, or departmental queues promptly.',
       icon: <Workflow className="w-5 h-5 text-amber-600" />
     },
     {
       layer: 'LAYER 04',
       name: 'Bi-Directional ERP & Ledger Sync',
-      desc: 'Guarantees 100% cryptographic ledger accuracy with automated billing, inventory decrements, and compliance audit trail logging.',
+      desc: 'Provides reliable ledger reconciliation with automated billing, inventory updates, and clear audit logging.',
       icon: <Database className="w-5 h-5 text-emerald-600" />
     }
   ];
@@ -62,7 +62,7 @@ export const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onRouteChang
             Intelligent <span className="text-blue-600">AI workflow automation</span>
           </h1>
           <p className="mt-6 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Librum re-engineers enterprise operations from the ground up. We build autonomous neural workflows that connect people, systems, and data into seamless operational engines.
+            Librum re-engineers enterprise operations from the ground up. We build connected AI workflows that tie people, systems, and data into seamless operational engines.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -89,7 +89,7 @@ export const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onRouteChang
               SYSTEM ARCHITECTURE
             </span>
             <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-950 mt-1">
-              The Librum Neural Execution Stack
+              The Librum Automation Stack
             </h2>
           </div>
 
@@ -119,8 +119,8 @@ export const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onRouteChang
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                  <span>Latency</span>
-                  <span className="text-emerald-700 font-semibold">&lt; 250ms</span>
+                  <span>Performance</span>
+                  <span className="text-emerald-700 font-semibold">Fast & Responsive</span>
                 </div>
               </div>
             ))}
@@ -134,7 +134,7 @@ export const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onRouteChang
               ENTERPRISE CAPABILITIES
             </span>
             <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-950 mt-1">
-              End-to-End Autonomous Operational Capabilities
+              End-to-End Workflow Capabilities
             </h2>
           </div>
 
@@ -142,27 +142,27 @@ export const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onRouteChang
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs">
               <h4 className="font-heading text-base font-bold text-slate-950 mb-2 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-600" />
-                Multi-Agent Orchestration
+                Multi-Agent Coordination
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Autonomous AI agents collaborate across departments to fulfill complex, multi-step requests without human bottlenecks.
+                Intelligent agents collaborate across departments to handle multi-step requests without manual routing friction.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs">
               <h4 className="font-heading text-base font-bold text-slate-950 mb-2 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-600" />
-                Legacy ERP Integration
+                Existing ERP Integration
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Connect directly into SAP, Oracle, Odoo, Opera PMS, and custom SQL databases via secure cryptographic webhooks.
+                Connect directly into SAP, Oracle, Odoo, Opera PMS, and custom SQL databases via secure webhooks.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white border border-slate-200 shadow-xs">
               <h4 className="font-heading text-base font-bold text-slate-950 mb-2 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-600" />
-                Human-in-the-Loop Safety
+                Human-in-the-Loop Oversight
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
                 Configurable threshold gates for high-value financial payouts, medical escalations, and executive sign-offs.
@@ -171,7 +171,7 @@ export const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onRouteChang
           </div>
         </div>
 
-        {/* Security & Private Cloud Guarantee */}
+        {/* Security & Private Cloud Card */}
         <div className="rounded-3xl bg-white border border-slate-200 p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 text-left">
           <div className="flex items-start gap-4">
             <div className="p-3 rounded-2xl bg-blue-50 border border-blue-200 text-blue-700 shrink-0">
@@ -179,10 +179,10 @@ export const AiAutomationPage: React.FC<AiAutomationPageProps> = ({ onRouteChang
             </div>
             <div>
               <h3 className="text-xl font-heading font-bold text-slate-950">
-                Enterprise Data Sovereignty & Air-Gapped Deployment
+                Enterprise Data Privacy & Secure Deployment Options
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-xl leading-relaxed">
-                Deploy models on private cloud or on-premise infrastructure. Compliant with Nigerian Data Protection Regulation (NDPR) and international security standards.
+                Deploy models on private cloud or on-premise infrastructure with strict enterprise privacy and security standards.
               </p>
             </div>
           </div>

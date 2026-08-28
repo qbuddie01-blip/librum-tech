@@ -31,7 +31,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onRouteChange 
 
         {/* Supporting Copy */}
         <p className="mt-6 text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-          Book an executive strategy session with our senior automation architects. We'll analyze your current processes and build a tailored automation blueprint for your organization.
+          Book an executive consultation with our senior automation architects. We'll analyze your current processes and build a tailored automation blueprint for your organization.
         </p>
 
         {/* Action Buttons */}
@@ -77,7 +77,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onRouteChange 
 
           <span className="flex items-center gap-2 text-slate-400">
             <Shield className="w-4 h-4 text-blue-400" />
-            <span>NDPR Certified</span>
+            <span>Enterprise Data Security</span>
           </span>
         </div>
 

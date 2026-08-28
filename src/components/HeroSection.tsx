@@ -27,34 +27,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
     hospitality: {
       industry: 'Hotel & Hospitality',
       icon: <Hotel className="w-4 h-4 text-blue-600" />,
-      trigger: 'Guest requests room upgrade via WhatsApp',
-      aiAction: 'AI verifies PMS availability and VIP rate policy',
-      orchestration: 'Dispatches task directly to duty staff terminal',
-      outcome: 'PMS ledger updated & guest confirmed in seconds'
+      trigger: 'Guest requests room service or late check-out via WhatsApp',
+      aiAction: 'AI checks property management system rules and availability',
+      orchestration: 'Dispatches task directly to duty staff interface',
+      outcome: 'PMS records updated and guest confirmed promptly'
     },
     healthcare: {
       industry: 'Clinical Healthcare',
       icon: <Activity className="w-4 h-4 text-rose-600" />,
       trigger: 'Patient checks in with urgent triage symptoms',
-      aiAction: 'AI calculates clinical urgency score & retrieves history',
-      orchestration: 'Pre-assigns bed and alerts attending doctor',
-      outcome: 'Doctor notified with pre-populated chart instantly'
+      aiAction: 'AI calculates urgency score and retrieves medical history',
+      orchestration: 'Pre-assigns consultation room and notifies physician',
+      outcome: 'Attending doctor notified with preliminary intake summary'
     },
     retail: {
       industry: 'Retail & Supermarkets',
       icon: <ShoppingBag className="w-4 h-4 text-emerald-600" />,
-      trigger: 'POS checkout dips SKU inventory below threshold',
-      aiAction: 'AI evaluates sales velocity & supplier lead times',
-      orchestration: 'Generates and dispatches signed B2B purchase order',
-      outcome: 'Supplier auto-schedules delivery replenishment'
+      trigger: 'POS checkout reduces inventory below minimum reorder level',
+      aiAction: 'AI evaluates sales trends and supplier delivery lead times',
+      orchestration: 'Generates structured supplier purchase order',
+      outcome: 'Supplier notified and replenishment schedule confirmed'
     },
     education: {
       industry: 'Schools & Academies',
       icon: <GraduationCap className="w-4 h-4 text-purple-600" />,
-      trigger: 'Parent uploads school tuition payment proof',
-      aiAction: 'AI validates bank transfer hash via financial API',
-      orchestration: 'Provisions student portal profile & marks ledger',
-      outcome: 'Official receipt & admission sent to parent mobile'
+      trigger: 'Parent uploads admissions application and payment proof',
+      aiAction: 'AI checks payment reference against finance ledger',
+      orchestration: 'Creates student record and updates class roster',
+      outcome: 'Admission letter and receipt sent to parent mobile'
     }
   };
 
@@ -116,19 +116,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
             </button>
           </div>
 
-          {/* Trust Guarantees Strip */}
+          {/* Trust Highlights Strip */}
           <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-medium">
             <span className="flex items-center gap-1.5">
               <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-              <span>Zero Disruption to Existing ERP/PMS</span>
+              <span>Connects With Your Existing Software</span>
             </span>
             <span className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-blue-600" />
-              <span>NDPR & Enterprise Security Compliant</span>
+              <span>Enterprise Data Privacy & Security</span>
             </span>
             <span className="flex items-center gap-1.5">
               <Clock className="w-4 h-4 text-amber-600" />
-              <span>Sub-Second Response SLAs</span>
+              <span>Designed for Fast Processing</span>
             </span>
           </div>
 
@@ -144,7 +144,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-xs font-heading font-bold uppercase text-slate-900 tracking-wider flex items-center gap-1.5">
                   <Cpu className="w-4 h-4 text-blue-600" />
-                  <span>How Librum Connects Your Workflow</span>
+                  <span>How Connected Automation Works</span>
                 </span>
               </div>
 
@@ -184,10 +184,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               {/* Step 2: Reasoning */}
               <div className="p-4 rounded-2xl bg-blue-50/80 border border-blue-200/80">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono font-bold text-blue-700 uppercase">02. Reasoning</span>
+                  <span className="text-[10px] font-mono font-bold text-blue-700 uppercase">02. Evaluation</span>
                   <Zap className="w-3.5 h-3.5 text-blue-600" />
                 </div>
-                <span className="text-xs font-heading font-bold text-blue-950 block">AI Policy Check</span>
+                <span className="text-xs font-heading font-bold text-blue-950 block">Business Logic</span>
                 <p className="text-xs text-blue-900/80 mt-1 leading-snug">
                   {currentWorkflow.aiAction}
                 </p>
@@ -196,10 +196,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               {/* Step 3: Dispatch */}
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono font-bold text-slate-500 uppercase">03. Dispatch</span>
-                  <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-100 px-1.5 py-0.5 rounded">&lt; 100ms</span>
+                  <span className="text-[10px] font-mono font-bold text-slate-500 uppercase">03. Routing</span>
+                  <span className="text-[10px] font-mono text-emerald-700 font-bold bg-emerald-100 px-1.5 py-0.5 rounded">Fast</span>
                 </div>
-                <span className="text-xs font-heading font-bold text-slate-900 block">Task Routing</span>
+                <span className="text-xs font-heading font-bold text-slate-900 block">Task Assignment</span>
                 <p className="text-xs text-slate-600 mt-1 leading-snug">
                   {currentWorkflow.orchestration}
                 </p>
@@ -208,12 +208,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               {/* Step 4: System Sync */}
               <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[10px] font-mono font-bold text-slate-500 uppercase">04. Ledger</span>
+                  <span className="text-[10px] font-mono font-bold text-slate-500 uppercase">04. Update</span>
                   <CheckCircle2 className="w-3.5 h-3.5 text-blue-600" />
                 </div>
-                <span className="text-xs font-heading font-bold text-slate-900 block">ERP / Database</span>
+                <span className="text-xs font-heading font-bold text-slate-900 block">Core Database</span>
                 <p className="text-xs text-slate-600 mt-1 leading-snug">
-                  Instant bi-directional ledger and audit sync
+                  Reliable bi-directional record and ledger synchronization
                 </p>
               </div>
 
@@ -231,7 +231,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
 
             </div>
 
-            {/* Bottom Sector Telemetry Bar */}
+            {/* Bottom Sector Progress Bar */}
             <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-blue-600" />
@@ -239,7 +239,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
               </span>
               <span className="text-emerald-700 font-semibold flex items-center gap-1.5 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/80">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Execution Speed: Sub-second end-to-end</span>
+                <span>Workflow Status: Designed for fast automated processing</span>
               </span>
             </div>
 

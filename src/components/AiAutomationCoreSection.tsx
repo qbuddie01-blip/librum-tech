@@ -9,40 +9,40 @@ interface AiAutomationCoreSectionProps {
 export const AiAutomationCoreSection: React.FC<AiAutomationCoreSectionProps> = ({ onRouteChange }) => {
   const corePillars = [
     {
-      title: 'Multi-Agent Orchestration',
-      description: 'Autonomous specialized AI agents collaborate across departments to resolve complex, multi-step requests without human queue delays.',
+      title: 'Multi-Agent Coordination',
+      description: 'Specialized AI agents collaborate across departments to handle multi-step requests without manual routing friction.',
       icon: <Cpu className="w-5 h-5 text-blue-600" />,
-      badge: 'Agent Swarms'
+      badge: 'Multi-Agent'
     },
     {
       title: 'ERP & PMS Bi-Directional Sync',
-      description: 'Native zero-downtime integration with Opera PMS, SAP, Oracle NetSuite, Odoo, and custom SQL ledgers for instant record updates.',
+      description: 'Smooth integration with Opera PMS, SAP, Oracle NetSuite, Odoo, and custom SQL ledgers for reliable record updates.',
       icon: <Database className="w-5 h-5 text-emerald-600" />,
       badge: 'Ledger Accuracy'
     },
     {
       title: 'Omnichannel Ingestion',
-      description: 'Ingests structured and unstructured triggers across WhatsApp Business API, webhooks, ERP events, IoT sensors, and mobile terminals in real time.',
+      description: 'Ingests structured and unstructured triggers across WhatsApp Business API, webhooks, ERP events, and mobile applications in real time.',
       icon: <Network className="w-5 h-5 text-purple-600" />,
       badge: 'Omnichannel'
     },
     {
       title: 'Real-Time Queue Routing',
-      description: 'Intelligently analyzes operational policies and dispatches instructions directly to duty staff smartwatches and department terminals with sub-second SLAs.',
+      description: 'Analyzes business rules and routes instructions directly to duty staff mobile interfaces and department queues promptly.',
       icon: <Workflow className="w-5 h-5 text-amber-600" />,
-      badge: '< 100ms Dispatch'
+      badge: 'Prompt Dispatch'
     },
     {
       title: 'Human-in-the-Loop Safeguards',
-      description: 'Configurable automated approval gates for high-value financial payouts, critical clinical alerts, and executive sign-offs.',
+      description: 'Configurable automated approval gates for high-value financial transactions, critical clinical alerts, and executive sign-offs.',
       icon: <UserCheck className="w-5 h-5 text-blue-600" />,
       badge: 'Policy Control'
     },
     {
-      title: 'Private & Air-Gapped Cloud',
-      description: 'Strict Nigerian Data Protection Regulation (NDPR) compliance with private on-premise or sovereign cloud model sandboxing.',
+      title: 'Private & Secure Cloud',
+      description: 'Private on-premise or dedicated cloud model sandboxing built around strict enterprise data privacy standards.',
       icon: <ShieldCheck className="w-5 h-5 text-rose-600" />,
-      badge: 'NDPR Compliant'
+      badge: 'Data Privacy'
     }
   ];
 
@@ -54,14 +54,14 @@ export const AiAutomationCoreSection: React.FC<AiAutomationCoreSectionProps> = (
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-heading font-semibold text-blue-700 mb-4">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>THE NEURAL ENGINE</span>
+            <span>AI AUTOMATION CAPABILITIES</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-slate-950 tracking-tight leading-tight">
             The Librum <span className="text-blue-600">AI Automation Core</span>
           </h2>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Engineered as an autonomous enterprise nervous system. Our multi-agent intelligence layer connects your frontline customer requests directly to core business systems and duty teams.
+            Engineered to streamline business operations. Our AI automation layer connects customer and staff requests directly to your core business systems and teams.
           </p>
         </div>
 

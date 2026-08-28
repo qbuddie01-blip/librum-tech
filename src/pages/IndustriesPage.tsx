@@ -45,7 +45,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onRouteChange, s
             Tailored for <span className="text-blue-600">your industry</span>
           </h1>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Discover purpose-engineered multi-agent workflows built specifically for your sector's operational nuances, regulations, and legacy platforms.
+            Discover purpose-engineered workflows built specifically for your sector's operational processes, requirements, and systems.
           </p>
         </div>
 
@@ -137,7 +137,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onRouteChange, s
                     <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                       <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-100">
                         <span className="text-[10px] font-mono uppercase text-rose-700 font-bold block mb-1">
-                          Manual Pain Point
+                          Manual Bottleneck
                         </span>
                         <p className="text-slate-700 leading-snug">
                           {ind.problem}
@@ -146,7 +146,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onRouteChange, s
 
                       <div className="p-4 rounded-2xl bg-emerald-50/80 border border-emerald-100">
                         <span className="text-[10px] font-mono uppercase text-emerald-800 font-bold block mb-1">
-                          Librum AI Solution
+                          Librum Automation Solution
                         </span>
                         <p className="text-slate-800 leading-snug font-medium">
                           {ind.automation}
@@ -173,7 +173,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onRouteChange, s
                   {/* Footer CTA */}
                   <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <span className="text-xs font-mono text-emerald-700 font-medium">
-                      ✓ Ready for 14-Day Pilot Implementation
+                      ✓ Phased Pilot Implementation Approach Available
                     </span>
                     <button
                       onClick={() => onRouteChange('schedule-demo')}

@@ -23,15 +23,15 @@ export const SeoHead: React.FC<SeoHeadProps> = ({ currentRoute }) => {
 
     const descriptions: Record<PageRoute, string> = {
       'home': 'Librum Technologies transforms complex business workflows into intelligent, automated systems powered by AI for hotels, healthcare, retail, and enterprises.',
-      'ai-automation': 'Explore the 4-layer Librum neural architecture: Omnichannel Ingestion, Multi-Agent AI Core, Workflow Routing Matrix, and Bi-Directional ERP Sync.',
+      'ai-automation': 'Explore the 4-layer Librum automation architecture: Ingestion, Multi-Agent AI Core, Workflow Routing Matrix, and Bi-Directional ERP Sync.',
       'industries': 'Sector-specific AI automation suites engineered for hospitality, healthcare, education, retail, and corporate enterprise operations.',
-      'solutions': 'Zero-disruption enterprise process automation connecting seamlessly with Opera PMS, SAP, Oracle NetSuite, Odoo, and custom databases.',
-      'design': 'World-class digital product design, high-volume operational interfaces, mobile staff terminals, and accessible design systems.',
-      'about': 'Headquartered in Ikoyi, Lagos, Librum Technologies engineers autonomous workflows and digital transformation for African and global leaders.',
+      'solutions': 'Enterprise process automation connecting smoothly with property management systems, SAP, Oracle NetSuite, Odoo, and custom databases.',
+      'design': 'World-class digital product design, high-volume operational interfaces, mobile staff applications, and accessible design systems.',
+      'about': 'Headquartered in Ikoyi, Lagos, Librum Technologies engineers automated workflows and digital transformation for African and global leaders.',
       'case-studies': 'Examine our architectural concepts and illustrative benchmark blueprints across hospitality, retail supply chains, and clinical healthcare.',
       'schedule-demo': 'Request an executive consultation and tailored live simulation demonstration with our senior automation solution architects.',
-      'contact': 'Connect directly with Librum Technologies Limited at our Ikoyi, Lagos headquarters or dispatch an encrypted inquiry online.',
-      '404': 'The requested operational route or page was not found on the Librum Technologies network.',
+      'contact': 'Connect directly with Librum Technologies Limited at our Ikoyi, Lagos headquarters or send an inquiry online.',
+      '404': 'The requested operational route or page was not found on the Librum Technologies website.',
     };
 
     document.title = titles[currentRoute] || titles.home;

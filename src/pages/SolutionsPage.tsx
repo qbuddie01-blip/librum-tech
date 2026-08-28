@@ -10,23 +10,23 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onRouteChange }) =
   const enterpriseSolutions = [
     {
       title: 'ERP & Business Process Automation',
-      desc: 'Seamlessly synchronizes SAP, Oracle, Odoo, and custom enterprise resource planning platforms with operational frontline workflows without manual spreadsheet exports.',
+      desc: 'Seamlessly synchronizes SAP, Oracle, Odoo, and custom enterprise resource planning platforms with day-to-day operational workflows without manual spreadsheet exports.',
       features: ['Automated Ledger Entries', 'Bi-directional Invoice Reconciliation', 'Real-Time Inventory Depletion', 'Custom Data Transformation Adapters']
     },
     {
-      title: 'Multimodal AI Assistants & Concierges',
-      desc: 'Enterprise-grade conversational agents supporting English, French, Yoruba, Hausa, and Igbo. Capable of handling customer queries, booking appointments, and executing transactions.',
-      features: ['WhatsApp Business Cloud Integration', 'Voice & IVR Automated Triage', 'Contextual Knowledge Base Retrieval (RAG)', 'Instant Human-Agent Escalation']
+      title: 'AI Assistants & Concierge Systems',
+      desc: 'Enterprise-grade conversational agents supporting English, French, Yoruba, Hausa, and Igbo. Capable of handling customer queries, booking appointments, and routing requests.',
+      features: ['WhatsApp Business Integration', 'Multi-Channel Ingestion', 'Knowledge Base Retrieval', 'Direct Staff Escalation']
     },
     {
-      title: 'Intelligent Document & OCR Pipelines',
-      desc: 'Converts unstructured physical invoices, hospital lab receipts, school transcripts, and legal contracts into structured, validated JSON data in milliseconds.',
-      features: ['99.7% OCR Accuracy', 'Cryptographic Signature Verification', 'Fraud & Anomaly Detection', 'Direct Database Writing']
+      title: 'Intelligent Document & OCR Processing',
+      desc: 'Converts unstructured physical invoices, receipts, school transcripts, and legal contracts into structured, validated digital data efficiently.',
+      features: ['High-Accuracy Document Extraction', 'Verification Workflows', 'Discrepancy Detection', 'Direct Database Writing']
     },
     {
-      title: 'Custom Operational Middleware',
-      desc: 'Bespoke event-driven microservices engineered for high-concurrency African business environments, designed to operate reliably even during unstable network conditions.',
-      features: ['Offline-First Queue Sync', 'Air-Gapped On-Premises Option', 'Sub-Second WebSocket Telemetry', 'Enterprise 99.99% SLA Support']
+      title: 'Custom Operational Connectors',
+      desc: 'Bespoke event-driven microservices engineered for high-volume business environments, designed to operate reliably even during unstable network conditions.',
+      features: ['Offline-First Queue Sync', 'Private & On-Premises Options', 'Real-Time System Updates', 'Dedicated Technical Support']
     }
   ];
 
@@ -49,7 +49,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onRouteChange }) =
             Enterprise <span className="text-blue-600">solutions</span>
           </h1>
           <p className="mt-4 text-base text-slate-600 leading-relaxed">
-            Scalable, high-availability AI systems engineered to connect your legacy systems, streamline cross-departmental operations, and deliver measurable business efficiency.
+            Scalable AI automation systems engineered to connect your legacy systems, streamline cross-departmental operations, and deliver measurable business efficiency.
           </p>
         </div>
 
@@ -98,14 +98,14 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onRouteChange }) =
           ))}
         </div>
 
-        {/* Zero-Disruption Integration Card (Clean Light Blue Container) */}
+        {/* Integration Approach Card (Clean Light Blue Container) */}
         <div className="rounded-3xl bg-[#F5F9FF] border border-blue-200/80 p-8 sm:p-14 text-center shadow-sm">
           <div className="max-w-3xl mx-auto">
             
             {/* Tag Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100 border border-blue-200 text-xs font-heading font-semibold text-blue-800 uppercase tracking-wider mb-4">
               <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-              <span>ZERO-DISRUPTION PHILOSOPHY</span>
+              <span>SEAMLESS INTEGRATION APPROACH</span>
             </div>
 
             {/* Headline */}
@@ -115,7 +115,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onRouteChange }) =
 
             {/* Subheadline */}
             <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-              Our integration middleware speaks native protocols with SAP, Oracle NetSuite, Opera PMS, Microsoft Dynamics 365, Odoo, QuickBooks, POS registers, and SQL databases.
+              Our integration connectors support standard enterprise protocols across SAP, Oracle NetSuite, Opera PMS, Microsoft Dynamics 365, Odoo, QuickBooks, POS registers, and SQL databases.
             </p>
 
             {/* Platform Badges (Clean White Capsules) */}

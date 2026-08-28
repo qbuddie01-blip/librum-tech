@@ -60,7 +60,7 @@ export const Footer: React.FC<FooterProps> = ({ onRouteChange }) => {
               </div>
               <div className="flex items-center gap-2 text-xs font-mono text-emerald-400">
                 <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
-                <span>NDPR & Enterprise Security Compliant</span>
+                <span>Enterprise Data Privacy & Security Focus</span>
               </div>
             </div>
           </div>
@@ -170,7 +170,7 @@ export const Footer: React.FC<FooterProps> = ({ onRouteChange }) => {
               Privacy & Data Policy
             </button>
             <button onClick={() => handleLinkClick('contact')} className="hover:text-amber-400 transition-colors cursor-pointer">
-              NDPR Compliance
+              Data Security
             </button>
             <button onClick={() => handleLinkClick('schedule-demo')} className="text-amber-400 hover:text-amber-300 transition-colors cursor-pointer font-bold flex items-center gap-1">
               <span>Book Strategy Session</span>

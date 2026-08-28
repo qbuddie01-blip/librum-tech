@@ -21,13 +21,13 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
       step: 'STAGE 01',
       title: 'AI Decision Engine',
       subtitle: 'Intent Parsing & Validation',
-      desc: 'Ingests multi-channel requests, evaluates operational policies, and scores urgency in real-time.',
+      desc: 'Ingests multi-channel requests, evaluates operational policies, and prioritizes urgency in real-time.',
       icon: <Cpu className="w-5 h-5 text-blue-600" />
     },
     {
       step: 'STAGE 02',
       title: 'Workflow Orchestration',
-      subtitle: 'Multi-Agent State Machine',
+      subtitle: 'Multi-Step Execution',
       desc: 'Coordinates parallel sub-tasks across departments without human queue delays.',
       icon: <Workflow className="w-5 h-5 text-purple-600" />
     },
@@ -35,21 +35,21 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
       step: 'STAGE 03',
       title: 'Core Business Systems',
       subtitle: 'PMS, ERP & Database Sync',
-      desc: 'Direct bi-directional integration with Opera PMS, SAP, Oracle NetSuite, and custom SQL ledgers.',
+      desc: 'Direct bi-directional integration with property management systems, ERPs, and custom SQL ledgers.',
       icon: <Database className="w-5 h-5 text-emerald-600" />
     },
     {
       step: 'STAGE 04',
       title: 'Duty Staff & Departments',
-      subtitle: 'Smartwatch & Terminal Alerts',
-      desc: 'Pushes priority tasks directly to on-duty staff wearables and mobile station screens.',
+      subtitle: 'Mobile & Desktop Interfaces',
+      desc: 'Pushes priority tasks directly to on-duty staff mobile devices, tablets, and desktop station screens.',
       icon: <Users className="w-5 h-5 text-amber-600" />
     },
     {
       step: 'STAGE 05',
       title: 'Automated Action & Closure',
-      subtitle: 'Zero-Toil Resolution',
-      desc: 'Fulfills requests, updates ledgers, generates audit receipts, and notifies stakeholders instantly.',
+      subtitle: 'Reliable Resolution',
+      desc: 'Fulfills requests, updates ledgers, generates audit records, and notifies stakeholders promptly.',
       icon: <CheckCircle2 className="w-5 h-5 text-blue-600" />
     }
   ];
@@ -66,10 +66,10 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
           </div>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-slate-950 tracking-tight">
-            End-to-end <span className="text-blue-600">multi-agent pipeline</span>
+            How connected <span className="text-blue-600">automation works</span>
           </h2>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            From the initial customer trigger to automated execution and ERP synchronization, every layer operates with sub-100ms latency.
+            From the initial customer trigger to automated execution and ERP synchronization, every layer is designed for responsive, dependable execution.
           </p>
         </div>
 
@@ -102,25 +102,25 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
               </div>
 
               <div className="mt-6 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                <span>Latency SLA</span>
-                <span className="text-emerald-700 font-semibold">&lt; 100ms</span>
+                <span>Performance</span>
+                <span className="text-emerald-700 font-semibold">Fast & Responsive</span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Architecture Guarantee Card (Clean White Card) */}
+        {/* Architecture Information Card (Clean White Card) */}
         <div className="rounded-3xl bg-white border border-slate-200 p-8 sm:p-10 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 text-left">
           <div className="space-y-2">
             <div className="flex items-center gap-2 text-xs font-mono text-emerald-700 font-bold uppercase">
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              <span>Zero Operational Risk & Air-Gapped Security</span>
+              <span>Smooth Integration & Secure Deployment Options</span>
             </div>
             <h3 className="text-xl sm:text-2xl font-heading font-bold text-slate-950">
               Integrate with your existing ERP, PMS & database infrastructure.
             </h3>
             <p className="text-sm text-slate-600">
-              No need to replace software your teams already know. Librum sits as an intelligent orchestration layer on top.
+              No need to replace software your teams already know. Librum connects as an intelligent coordination layer on top.
             </p>
           </div>
 

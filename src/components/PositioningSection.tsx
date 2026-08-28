@@ -12,26 +12,26 @@ export const PositioningSection: React.FC<PositioningSectionProps> = ({ onRouteC
     {
       sector: 'Hotel & Hospitality Operations',
       manualState: 'Guest calls front desk; staff writes paper note; calls housekeeping room-by-room; manual ledger entry.',
-      automatedState: 'Guest sends WhatsApp message; AI validates PMS folio; dispatches task to staff smartwatch; logs charge automatically.',
-      timeGain: 'From 45 mins to < 90 seconds'
+      automatedState: 'Guest sends WhatsApp message; AI validates PMS folio; dispatches task to staff mobile interface; logs charge promptly.',
+      timeGain: 'Significant turnaround improvement'
     },
     {
       sector: 'Healthcare Triage & Patient Intake',
       manualState: 'Patient waits in crowded lobby; fills paper clipboard; nurse searches archive shelves for physical paper file.',
-      automatedState: 'Patient completes digital intake; AI calculates triage urgency score; retrieves EMR; alerts doctor immediately.',
-      timeGain: 'From 35 mins to instant intake'
+      automatedState: 'Patient completes digital intake; AI assists triage prioritization; retrieves EMR; alerts doctor immediately.',
+      timeGain: 'Streamlined patient registration'
     },
     {
       sector: 'Education Admissions & Fee Reconciliation',
       manualState: 'Parents queue at administrative hall with paper bank tellers; accountant manually reconciles bank statements.',
-      automatedState: 'Online portal verifies bank transfer hash via API; OCR validates transcript; automated student profile creation.',
-      timeGain: 'From 4 days to instant enrollment'
+      automatedState: 'Online portal verifies bank transfer via API; OCR assists transcript validation; automated student profile creation.',
+      timeGain: 'Rapid fee validation & enrollment'
     },
     {
       sector: 'Retail Multi-Store Inventory',
       manualState: 'Store manager notices stockout on shelf; writes manual paper request; head office delays purchase order by days.',
-      automatedState: 'POS register barcode scan updates cloud inventory balance; automated predictive reorder dispatches PO to supplier.',
-      timeGain: 'Zero stockouts, real-time sync'
+      automatedState: 'POS register barcode scan updates cloud inventory balance; automated reorder notification dispatches to supplier.',
+      timeGain: 'Real-time synchronization & reordering'
     }
   ];
 
@@ -52,7 +52,7 @@ export const PositioningSection: React.FC<PositioningSectionProps> = ({ onRouteC
           </h2>
 
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Behind every customer interaction, patient triage, student enrollment, or vendor purchase order lies an operational workflow. When workflows are automated, your business scales effortlessly.
+            Behind every customer interaction, patient registration, student enrollment, or vendor purchase order lies an operational workflow. When workflows are automated, your business scales with confidence.
           </p>
         </div>
 
@@ -98,7 +98,7 @@ export const PositioningSection: React.FC<PositioningSectionProps> = ({ onRouteC
 
               {/* Turnaround Accelerator Footer */}
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-mono">
-                <span className="text-slate-500">Turnaround Improvement:</span>
+                <span className="text-slate-500">Operational Outcome:</span>
                 <span className="text-blue-600 font-bold">{pair.timeGain}</span>
               </div>
             </div>
@@ -116,7 +116,7 @@ export const PositioningSection: React.FC<PositioningSectionProps> = ({ onRouteC
               Eliminate operational bottlenecks across your teams.
             </h3>
             <p className="text-sm text-slate-600">
-              Let Librum engineer your connected, autonomous digital infrastructure.
+              Let Librum engineer your connected, intelligent digital workflows.
             </p>
           </div>
 

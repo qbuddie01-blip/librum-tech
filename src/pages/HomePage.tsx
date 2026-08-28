@@ -35,7 +35,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onRouteChange, onSelectIndus
         onRouteChange={onRouteChange}
       />
 
-      {/* 03 — AI AUTOMATION CORE (The Neural Engine) */}
+      {/* 03 — AI AUTOMATION CORE CAPABILITIES */}
       <AiAutomationCoreSection 
         onRouteChange={onRouteChange}
       />

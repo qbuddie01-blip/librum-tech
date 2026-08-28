@@ -30,7 +30,7 @@ export const WhyLibrumSection: React.FC = () => {
             Why organizations <span className="text-emerald-700">choose Librum</span>
           </h2>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            We don't just build isolated scripts. We re-engineer how African and international enterprises function, unlocking operational velocity, eliminating manual error, and accelerating profitability.
+            We don't just build isolated scripts. We help modern enterprises improve operational performance, reduce repetitive manual bottlenecks, and support scalable business growth.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export const WhyLibrumSection: React.FC = () => {
 
               <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                 <span className="text-[11px] font-mono text-emerald-700 font-semibold uppercase tracking-wider">
-                  Enterprise Standard
+                  Enterprise Quality
                 </span>
                 <span className="text-xs text-slate-400">0{point.id}</span>
               </div>

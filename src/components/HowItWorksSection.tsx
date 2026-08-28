@@ -36,7 +36,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onRouteCha
             How AI automation <span className="text-emerald-700">works</span>
           </h2>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Our structured 5-stage transformation methodology ensures zero operational downtime, robust enterprise security, and immediate operational velocity.
+            Our structured 5-stage transformation methodology ensures careful planning, enterprise data security, and clear operational benefits.
           </p>
         </div>
 
@@ -86,14 +86,14 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ onRouteCha
           })}
         </div>
 
-        {/* Methodology Guarantee Footer */}
+        {/* Methodology Pilot Footer */}
         <div className="rounded-3xl bg-white border border-emerald-200/80 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-left shadow-xs">
           <div className="space-y-1">
             <span className="text-xs font-mono uppercase text-emerald-700 font-bold">
-              Guaranteed Deployment SLA
+              Structured Implementation Timeline
             </span>
             <h4 className="text-lg font-heading font-bold text-slate-950">
-              Pilot deployment live in under 14 business days.
+              Explore a phased pilot approach tailored to your business operations.
             </h4>
           </div>
           <button

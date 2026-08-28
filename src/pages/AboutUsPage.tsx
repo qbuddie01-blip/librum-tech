@@ -11,13 +11,13 @@ interface AboutUsPageProps {
 export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
   const leadershipValues = [
     {
-      title: 'Operational Velocity First',
-      desc: 'We judge technology solely by its impact on real-world business turnaround, cost efficiency, and error elimination.',
+      title: 'Operational Impact First',
+      desc: 'We judge technology solely by its impact on real-world business turnaround, cost efficiency, and error reduction.',
       icon: <Target className="w-5 h-5 text-blue-600" />
     },
     {
       title: 'Indigenous Innovation, Global Standards',
-      desc: 'Headquartered in Ikoyi, Lagos, our architectures are engineered for the specific nuances of African markets while meeting stringent international security standards.',
+      desc: 'Headquartered in Ikoyi, Lagos, our architectures are engineered for the operational nuances of African markets while meeting stringent international security standards.',
       icon: <Building className="w-5 h-5 text-purple-600" />
     },
     {
@@ -26,8 +26,8 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
       icon: <Users className="w-5 h-5 text-amber-600" />
     },
     {
-      title: 'Zero Compromise on Data Sovereignty',
-      desc: 'We enforce strict cryptographic standards, private model sandboxing, and full NDPR compliance across every pipeline.',
+      title: 'Enterprise Data Privacy & Security',
+      desc: 'We enforce standard encryption protocols, dedicated private model sandboxing, and strict privacy principles across every integration.',
       icon: <ShieldCheck className="w-5 h-5 text-emerald-600" />
     }
   ];
@@ -107,7 +107,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
             </span>
 
             <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-950">
-              Architects of Autonomous, Connected Enterprise Workflows.
+              Architects of Connected Enterprise Workflows.
             </h2>
 
             <p className="text-sm text-slate-600 leading-relaxed">
@@ -115,7 +115,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
             </p>
 
             <p className="text-sm text-slate-600 leading-relaxed">
-              Whether orchestrating guest requests across a luxury hotel, automating emergency patient triage in clinical facilities, syncing inventory across multi-branch supermarkets, or eliminating bureaucratic delays in corporate approval chains, Librum builds the intelligent neural bridge that ties people, software, and actions together.
+              Whether organizing guest requests across a luxury hotel, streamlining patient intake in clinical facilities, syncing inventory across multi-branch supermarkets, or eliminating delays in corporate approval chains, Librum builds the connected bridge that ties people, software, and actions together.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
@@ -125,7 +125,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
               </div>
               <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>Enterprise ERP Middleware</span>
+                <span>Enterprise ERP Integration</span>
               </div>
               <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
@@ -133,7 +133,7 @@ export const AboutUsPage: React.FC<AboutUsPageProps> = ({ onRouteChange }) => {
               </div>
               <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>World-Class UI/UX Systems</span>
+                <span>Modern UI/UX Systems</span>
               </div>
             </div>
           </div>
