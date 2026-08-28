@@ -44,7 +44,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col justify-between selection:bg-amber-500/30 selection:text-amber-200">
+    <div className="min-h-screen bg-white text-slate-900 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-900">
       
       {/* Dynamic SEO Head and Structured Data */}
       <SeoHead currentRoute={currentRoute} />
@@ -129,7 +129,7 @@ export const App: React.FC = () => {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="p-3 rounded-full bg-slate-900/90 border border-slate-700 text-amber-400 hover:text-white hover:bg-slate-800 shadow-xl backdrop-blur-md transition-all cursor-pointer hover:scale-110 focus-visible:ring-2 focus-visible:ring-amber-400"
+            className="p-3 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:bg-slate-50 shadow-lg transition-all cursor-pointer hover:scale-110"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-5 h-5" />
@@ -138,7 +138,7 @@ export const App: React.FC = () => {
 
         <button
           onClick={() => handleRouteChange('schedule-demo')}
-          className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-2xl shadow-amber-500/30 hover:scale-105 transition-all cursor-pointer border border-amber-300/40 focus-visible:ring-2 focus-visible:ring-amber-400"
+          className="hidden sm:flex items-center gap-2 px-4 py-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all cursor-pointer"
         >
           <Calendar className="w-4 h-4 text-slate-950" />
           <span>Demo</span>

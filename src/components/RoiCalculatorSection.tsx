@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { PageRoute } from '../types';
-import { Calculator, ArrowRight, Info } from 'lucide-react';
+import { Calculator, ArrowRight, Info, CheckCircle2 } from 'lucide-react';
 import { COMPANY_CONFIG } from '../config/constants';
 
 interface RoiCalculatorSectionProps {
@@ -25,7 +25,7 @@ export const RoiCalculatorSection: React.FC<RoiCalculatorSectionProps> = ({ onRo
 
   const currentInd = industryMultipliers[selectedIndustry] || industryMultipliers.hospitality;
 
-  // Calculation formulas (100% transparent and input-driven)
+  // Calculation formulas
   const totalWeeklyManualHours = teamSize * manualHoursPerWeek;
   const annualManualHours = totalWeeklyManualHours * 50; // 50 working weeks per year
   const annualHoursSaved = Math.round(annualManualHours * currentInd.efficiencyGain);
@@ -36,196 +36,192 @@ export const RoiCalculatorSection: React.FC<RoiCalculatorSectionProps> = ({ onRo
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-[#030712] via-[#050b18] to-[#030712] border-b border-slate-800">
+    <section className="py-24 bg-white border-b border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400 mb-4">
-            <Calculator className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-heading font-semibold text-blue-700 mb-4">
+            <Calculator className="w-3.5 h-3.5 text-blue-600" />
             <span>OPERATIONAL IMPACT ESTIMATOR</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white tracking-tight">
-            ESTIMATED <span className="gold-gradient-text">AUTOMATION PROJECTIONS</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-slate-950 tracking-tight">
+            Estimated <span className="text-blue-600">automation projections</span>
           </h2>
-          <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Calculate estimated operational hours reclaimed and cost reallocation potential by automating repetitive data entry and routing toil.
           </p>
 
-          <div className="mt-4 inline-flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-slate-900/90 border border-amber-500/30 text-xs font-mono text-amber-300/90 max-w-3xl text-left">
-            <Info className="w-4 h-4 text-amber-400 shrink-0" />
+          <div className="mt-4 inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 max-w-3xl text-left">
+            <Info className="w-4 h-4 text-blue-600 shrink-0" />
             <span>{COMPANY_CONFIG.disclaimers.roiCalculator}</span>
           </div>
         </div>
 
-        {/* Calculator Main Box */}
-        <div className="max-w-5xl mx-auto rounded-3xl bg-slate-900/90 border border-amber-500/30 p-6 sm:p-10 shadow-2xl backdrop-blur-2xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* 2-Column Calculator Container (Clean White Card) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-6xl mx-auto items-stretch">
           
-          {/* Sliders Form (Left Col 7) */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            
-            {/* Industry Selector */}
+          {/* Left Column: Interactive Inputs (7 cols) */}
+          <div className="lg:col-span-7 rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 text-left space-y-6 shadow-sm">
+            <h3 className="font-heading text-lg font-bold text-slate-950 border-b border-slate-100 pb-3 flex items-center gap-2">
+              <span>Input Your Operational Metrics</span>
+            </h3>
+
+            {/* Industry Selection */}
             <div>
-              <label htmlFor="roi-industry-select" className="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold block mb-2">
-                1. Select Industry Sector
+              <label className="block text-xs font-mono font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Industry Sector
               </label>
-              <select
-                id="roi-industry-select"
-                value={selectedIndustry}
-                onChange={(e) => setSelectedIndustry(e.target.value)}
-                className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-white font-sans text-sm focus:border-amber-400 focus:outline-none cursor-pointer"
-              >
-                <option value="hospitality">Hotel & Hospitality Operations</option>
-                <option value="healthcare">Hospitals & Healthcare Clinics</option>
-                <option value="education">Schools & Educational Academies</option>
-                <option value="retail">Retail Stores & Departmental Chains</option>
-                <option value="enterprise">Corporate & Enterprise Logistics</option>
-                <option value="custom">Custom Proprietary Workflows</option>
-              </select>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {Object.entries(industryMultipliers).map(([key, data]) => (
+                  <button
+                    key={key}
+                    onClick={() => setSelectedIndustry(key)}
+                    className={`px-3 py-2 rounded-xl text-xs font-heading font-semibold transition-all cursor-pointer border text-left ${
+                      selectedIndustry === key
+                        ? 'bg-blue-50 border-blue-500 text-blue-700 font-bold shadow-xs'
+                        : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                    }`}
+                  >
+                    {data.label}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {/* Slider 1: Team Size */}
+            {/* Team Size Slider */}
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label htmlFor="roi-team-size" className="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">
-                  2. Operations & Admin Team Size
+                <label className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                  Operational Team Size (Staff)
                 </label>
-                <span className="text-sm font-mono font-bold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20">
+                <span className="text-sm font-mono font-bold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-lg border border-blue-200">
                   {teamSize} Staff Members
                 </span>
               </div>
               <input
-                id="roi-team-size"
                 type="range"
                 min="5"
                 max="250"
                 step="5"
                 value={teamSize}
                 onChange={(e) => setTeamSize(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
-              <div className="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
-                <span>5 staff</span>
-                <span>125 staff</span>
-                <span>250+ staff</span>
+              <div className="flex justify-between text-[10px] font-mono text-slate-400 mt-1">
+                <span>5 Staff</span>
+                <span>125 Staff</span>
+                <span>250+ Staff</span>
               </div>
             </div>
 
-            {/* Slider 2: Weekly Manual Hours */}
+            {/* Manual Hours / Week */}
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label htmlFor="roi-manual-hours" className="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">
-                  3. Weekly Repetitive Hours / Person
+                <label className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                  Manual Routine Hours Per Staff / Week
                 </label>
-                <span className="text-sm font-mono font-bold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20">
+                <span className="text-sm font-mono font-bold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-lg border border-blue-200">
                   {manualHoursPerWeek} Hours / Week
                 </span>
               </div>
               <input
-                id="roi-manual-hours"
                 type="range"
                 min="4"
                 max="30"
                 step="1"
                 value={manualHoursPerWeek}
                 onChange={(e) => setManualHoursPerWeek(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
-              <div className="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
-                <span>4 hrs (Light admin)</span>
-                <span>16 hrs (Moderate)</span>
-                <span>30 hrs (High manual toil)</span>
+              <div className="flex justify-between text-[10px] font-mono text-slate-400 mt-1">
+                <span>4 Hours</span>
+                <span>15 Hours</span>
+                <span>30 Hours</span>
               </div>
             </div>
 
-            {/* Slider 3: Hourly Cost */}
+            {/* Hourly Rate */}
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label htmlFor="roi-hourly-rate" className="text-xs font-mono uppercase tracking-wider text-slate-300 font-bold">
-                  4. Average Hourly Burden Cost (₦ NGN)
+                <label className="text-xs font-mono font-bold text-slate-700 uppercase tracking-wider">
+                  Estimated Average Cost Per Staff Hour (₦)
                 </label>
-                <span className="text-sm font-mono font-bold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/20">
+                <span className="text-sm font-mono font-bold text-blue-600 bg-blue-50 px-2.5 py-0.5 rounded-lg border border-blue-200">
                   {formatNaira(hourlyRateNgn)} / Hr
                 </span>
               </div>
               <input
-                id="roi-hourly-rate"
                 type="range"
                 min="1500"
-                max="12000"
+                max="15000"
                 step="500"
                 value={hourlyRateNgn}
                 onChange={(e) => setHourlyRateNgn(Number(e.target.value))}
-                className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-amber-400"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
               />
-              <div className="flex justify-between text-[10px] font-mono text-slate-500 mt-1">
-                <span>₦1,500/hr</span>
-                <span>₦6,000/hr</span>
-                <span>₦12,000+/hr</span>
+              <div className="flex justify-between text-[10px] font-mono text-slate-400 mt-1">
+                <span>₦1,500</span>
+                <span>₦8,000</span>
+                <span>₦15,000+</span>
               </div>
             </div>
-
           </div>
 
-          {/* Results Summary Box (Right Col 5) */}
-          <div className="lg:col-span-5 rounded-2xl bg-gradient-to-b from-slate-950 to-blue-950/80 border border-amber-500/40 p-6 sm:p-7 shadow-2xl flex flex-col justify-between text-left">
+          {/* Right Column: Dynamic Projections (5 cols) */}
+          <div className="lg:col-span-5 rounded-3xl bg-[#F5F9FF] border border-blue-200/80 p-6 sm:p-8 flex flex-col justify-between text-left shadow-sm">
             <div>
-              <div className="flex items-center justify-between border-b border-slate-800 pb-3 mb-6">
-                <span className="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold">
-                  ESTIMATED PROJECTIONS
+              <div className="flex items-center justify-between border-b border-blue-100 pb-3 mb-6">
+                <span className="text-xs font-mono uppercase text-blue-700 font-bold">
+                  Illustrative Projections
                 </span>
-                <span className="text-[10px] font-mono text-slate-400">
-                  ANNUAL BASIS
+                <span className="text-[10px] font-mono bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">
+                  {currentInd.turnaroundFactor} Turnaround
                 </span>
               </div>
 
-              <div className="mb-6">
-                <span className="text-xs font-mono text-slate-400 block mb-1">
-                  Estimated Annual Hours Recovered
+              {/* Stat 1: Annual Hours Saved */}
+              <div className="p-4 rounded-2xl bg-white border border-slate-200 mb-4 shadow-xs">
+                <span className="text-xs font-mono text-slate-500 block uppercase">
+                  Estimated Annual Hours Saved
                 </span>
-                <div className="text-3xl sm:text-4xl font-heading font-extrabold text-white">
-                  {annualHoursSaved.toLocaleString()} <span className="text-amber-400 text-lg font-mono font-normal">Hrs/Year</span>
+                <div className="text-3xl sm:text-4xl font-heading font-extrabold text-slate-950 mt-1">
+                  {annualHoursSaved.toLocaleString()} <span className="text-sm font-sans font-medium text-slate-600">Hours / Year</span>
                 </div>
-                <span className="text-[11px] font-mono text-emerald-400 mt-1 block">
-                  ≈ {Math.round(annualHoursSaved / 8)} full business days saved
-                </span>
               </div>
 
-              <div className="mb-6">
-                <span className="text-xs font-mono text-slate-400 block mb-1">
-                  Estimated Operational Cost Impact
+              {/* Stat 2: Operational Value Reclaimed */}
+              <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 mb-4 shadow-xs">
+                <span className="text-xs font-mono text-emerald-800 block uppercase font-bold">
+                  Estimated Operational Value Reallocated
                 </span>
-                <div className="text-2xl sm:text-3xl font-heading font-extrabold gold-gradient-text">
+                <div className="text-2xl sm:text-3xl font-heading font-extrabold text-emerald-950 mt-1">
                   {formatNaira(annualFinancialSavings)}
                 </div>
-                <span className="text-[11px] font-mono text-slate-400 mt-1 block">
-                  Reallocatable operational capacity per year
-                </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800 mb-6 flex items-center justify-between">
-                <div className="text-left">
-                  <span className="text-[10px] font-mono text-slate-400 uppercase block">
-                    Estimated Workflow Acceleration
-                  </span>
-                  <span className="text-xs font-bold text-white">
-                    {currentInd.label}
-                  </span>
+              <div className="space-y-2 text-xs text-slate-600 pt-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span>Sub-second routine data-entry automation</span>
                 </div>
-                <span className="text-xl font-heading font-extrabold text-amber-400">
-                  {currentInd.turnaroundFactor} Faster
-                </span>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                  <span>Zero staff layoffs: focus staff on high-value operations</span>
+                </div>
               </div>
             </div>
 
-            <button
-              onClick={() => onRouteChange('schedule-demo')}
-              className="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>AUDIT YOUR BUSINESS WORKFLOWS</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
+            <div className="pt-6 border-t border-blue-100 mt-6">
+              <button
+                onClick={() => onRouteChange('schedule-demo')}
+                className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs hover:scale-[1.02]"
+              >
+                <span>REQUEST DETAILED ROI AUDIT</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
 
         </div>

@@ -60,19 +60,23 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
         setExecutionLog((prev) => [
           ...prev,
           { 
-            step: stepIdx + 1, 
-            text: `[${current.label} / ${current.actor}] ${current.action} — ${current.detail}`, 
-            time: `+${current.timeMs}ms` 
+            step: stepIdx + 2, 
+            text: `[${current.label.toUpperCase()}] ${current.actor} → ${current.action}`, 
+            time: `${(stepIdx + 1) * 120}ms` 
           }
         ]);
         stepIdx++;
-        setTimeout(executeNextStep, 950);
+        setTimeout(executeNextStep, 650);
       } else {
         setIsRunning(false);
         setIsCompleted(true);
         setExecutionLog((prev) => [
           ...prev,
-          { step: steps.length + 1, text: `[OUTCOME] ${activeScenario.expectedOutcome}`, time: 'DONE' }
+          { 
+            step: steps.length + 2, 
+            text: `[COMPLETED] Workflow verified & ledger synchronized without manual intervention.`, 
+            time: `${(steps.length + 1) * 120}ms` 
+          }
         ]);
       }
     };
@@ -88,37 +92,30 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
   };
 
   const handleScenarioChange = (id: string) => {
-    setSelectedIndustryId(id);
+    setSelectedScenarioId(id);
     handleReset();
   };
 
-  const setSelectedIndustryId = (id: string) => {
-    setSelectedScenarioId(id);
-  };
-
   return (
-    <section id="live-simulation-section" className="py-24 relative overflow-hidden bg-[#020617] border-y border-slate-800/80">
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
+    <section id="live-simulation-section" className="py-24 bg-white border-b border-slate-200/80 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400 mb-4">
-            <Zap className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-heading font-semibold text-blue-700 mb-4">
+            <Zap className="w-3.5 h-3.5 text-blue-600" />
             <span>INTERACTIVE AI AUTOMATION SIMULATOR</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-white tracking-tight">
-            SEE HOW WORKFLOWS <span className="gold-gradient-text">EXECUTE</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-slate-950 tracking-tight">
+            See how workflows <span className="text-blue-600">execute</span>
           </h2>
-          <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+          <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Experience how Librum’s multi-agent automation engines process complex business scenarios in real-time. Select an industry scenario below and trigger the live simulated pipeline.
           </p>
 
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900/90 border border-amber-500/30 text-xs font-mono text-slate-300 max-w-2xl text-left">
-            <Info className="w-4 h-4 text-amber-400 shrink-0" />
+          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 max-w-2xl text-left">
+            <Info className="w-4 h-4 text-blue-600 shrink-0" />
             <span>{COMPANY_CONFIG.disclaimers.simulator}</span>
           </div>
         </div>
@@ -131,21 +128,21 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
               <button
                 key={scenario.id}
                 onClick={() => handleScenarioChange(scenario.id)}
-                className={`p-3.5 rounded-xl text-left transition-all duration-200 border cursor-pointer flex flex-col justify-between ${
+                className={`p-4 rounded-2xl text-left transition-all duration-200 border cursor-pointer flex flex-col justify-between ${
                   isSelected
-                    ? 'bg-slate-900 border-amber-500/80 shadow-lg shadow-amber-500/10'
-                    : 'bg-slate-950/60 border-slate-800 hover:border-slate-700 opacity-80 hover:opacity-100'
+                    ? 'bg-blue-50/80 border-blue-500 text-blue-950 shadow-sm'
+                    : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
-                  <span className={`p-2 rounded-lg ${isSelected ? 'bg-amber-500 text-slate-950' : 'bg-slate-900 text-slate-400'}`}>
+                  <span className={`p-2 rounded-lg ${isSelected ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-600'}`}>
                     {getIcon(scenario.iconName)}
                   </span>
-                  <span className="text-[9px] font-mono uppercase tracking-wider text-slate-400">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-semibold">
                     {scenario.industry.split('&')[0]}
                   </span>
                 </div>
-                <span className="font-heading text-xs font-bold text-white line-clamp-2">
+                <span className="font-heading text-xs font-bold text-slate-900 line-clamp-2">
                   {scenario.name}
                 </span>
               </button>
@@ -153,22 +150,22 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
           })}
         </div>
 
-        {/* Simulation Console Interface */}
-        <div className="max-w-5xl mx-auto rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-amber-500/25 p-5 sm:p-8 shadow-2xl backdrop-blur-xl">
+        {/* Simulation Console Interface (Clean White Card) */}
+        <div className="max-w-5xl mx-auto rounded-3xl bg-white border border-slate-200 p-6 sm:p-8 shadow-sm">
           
           {/* Active Scenario Overview */}
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-800 text-left">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-slate-100 text-left">
             <div>
               <div className="flex items-center gap-2">
-                <span className="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-mono text-xs font-semibold">
+                <span className="px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 font-heading text-xs font-bold">
                   Scenario: {activeScenario.name}
                 </span>
-                <span className="text-xs font-mono text-slate-400">
+                <span className="text-xs font-mono text-slate-500">
                   [{activeScenario.industry}]
                 </span>
               </div>
-              <div className="mt-2 text-xs sm:text-sm text-slate-300">
-                <strong className="text-amber-400 font-mono">Trigger: </strong>
+              <div className="mt-2 text-xs sm:text-sm text-slate-700">
+                <strong className="text-slate-900 font-semibold">Trigger: </strong>
                 {activeScenario.initialTrigger}
               </div>
             </div>
@@ -178,10 +175,10 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
               <button
                 onClick={handleRunSimulation}
                 disabled={isRunning}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                className={`flex items-center gap-2 px-6 py-2.5 rounded-xl font-heading text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                   isRunning
-                    ? 'bg-slate-800 text-slate-500 border border-slate-700 cursor-not-allowed'
-                    : 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-lg shadow-amber-500/20'
+                    ? 'bg-slate-200 text-slate-500 cursor-not-allowed'
+                    : 'bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-xs'
                 }`}
               >
                 <Play className={`w-3.5 h-3.5 ${isRunning ? 'animate-pulse' : ''}`} />
@@ -191,7 +188,7 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
               <button
                 onClick={handleReset}
                 disabled={isRunning || currentStepIndex === -1}
-                className="p-2.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 hover:text-white hover:border-slate-600 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
+                className="p-2.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-600 hover:text-slate-900 hover:bg-slate-200 disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                 title="Reset simulation"
                 aria-label="Reset simulation"
               >
@@ -210,12 +207,12 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
                 return (
                   <div
                     key={step.id}
-                    className={`relative p-4 rounded-xl border transition-all duration-300 text-left ${
+                    className={`relative p-4 rounded-2xl border transition-all duration-300 text-left ${
                       isActive
-                        ? 'bg-amber-500/10 border-amber-500 shadow-lg shadow-amber-500/10 ring-1 ring-amber-500/50'
+                        ? 'bg-amber-50 border-amber-500 shadow-sm ring-1 ring-amber-400'
                         : isPast
-                        ? 'bg-slate-950 border-emerald-500/40'
-                        : 'bg-slate-950/60 border-slate-800 opacity-60'
+                        ? 'bg-emerald-50/70 border-emerald-300'
+                        : 'bg-slate-50 border-slate-200/90'
                     }`}
                   >
                     <div className="flex items-center justify-between mb-2">
@@ -223,27 +220,27 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
                         isActive 
                           ? 'bg-amber-500 text-slate-950' 
                           : isPast 
-                          ? 'bg-emerald-500/20 text-emerald-400' 
-                          : 'bg-slate-800 text-slate-400'
+                          ? 'bg-emerald-100 text-emerald-800' 
+                          : 'bg-slate-200 text-slate-600'
                       }`}>
                         {step.label}
                       </span>
                       {isPast ? (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                       ) : isActive ? (
                         <span className="relative flex h-2.5 w-2.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
                           <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500" />
                         </span>
                       ) : (
-                        <Clock className="w-3.5 h-3.5 text-slate-600" />
+                        <Clock className="w-3.5 h-3.5 text-slate-400" />
                       )}
                     </div>
 
-                    <h4 className="font-heading text-xs font-bold text-white mb-1">
+                    <h4 className="font-heading text-xs font-bold text-slate-900 mb-1">
                       {step.actor}
                     </h4>
-                    <p className="text-[11px] text-slate-300 leading-snug">
+                    <p className="text-[11px] text-slate-600 leading-snug">
                       {step.action}
                     </p>
                   </div>
@@ -253,10 +250,10 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
           </div>
 
           {/* Telemetry Log Terminal */}
-          <div className="rounded-xl bg-slate-950 border border-slate-800 p-4 font-mono text-xs text-slate-300 text-left">
+          <div className="rounded-2xl bg-slate-900 border border-slate-800 p-4 font-mono text-xs text-slate-300 text-left">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2 mb-3">
-              <span className="text-[11px] text-slate-400 uppercase tracking-wider flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
+              <span className="text-[11px] text-slate-400 uppercase tracking-wider flex items-center gap-1.5 font-semibold">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span>Live Execution Telemetry</span>
               </span>
               <span className="text-[10px] text-slate-500">
@@ -266,7 +263,7 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
 
             <div className="space-y-1.5 max-h-36 overflow-y-auto pr-2">
               {executionLog.length === 0 ? (
-                <div className="text-slate-600 italic">
+                <div className="text-slate-500 italic">
                   Press "Run Simulation" above to watch automated packet dispatch...
                 </div>
               ) : (
@@ -280,14 +277,14 @@ export const LiveAutomationSimulator: React.FC<LiveAutomationSimulatorProps> = (
             </div>
 
             {isCompleted && (
-              <div className="mt-4 p-3 rounded-lg bg-emerald-950/40 border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-fadeIn">
+              <div className="mt-4 p-3.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 animate-fadeIn">
                 <div className="flex items-center gap-2 text-emerald-300 text-xs">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Simulated Workflow Completed: Zero Manual Intervention Required.</span>
                 </div>
                 <button
                   onClick={onScheduleDemo}
-                  className="px-3.5 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition-colors shrink-0 flex items-center gap-1 cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-amber-500 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider hover:bg-amber-400 transition-colors shrink-0 flex items-center gap-1 cursor-pointer"
                 >
                   <span>REQUEST TAILORED DEMO</span>
                   <ArrowRight className="w-3.5 h-3.5" />

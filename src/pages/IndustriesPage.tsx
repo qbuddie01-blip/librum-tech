@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { INDUSTRIES } from '../data/websiteData';
 import type { PageRoute } from '../types';
-import { Building, CheckCircle2 } from 'lucide-react';
+import { INDUSTRIES } from '../data/websiteData';
+import { ArrowRight, CheckCircle2, Building, Activity, ShoppingBag, GraduationCap, Briefcase, Layers } from 'lucide-react';
 
 interface IndustriesPageProps {
   onRouteChange: (route: PageRoute) => void;
@@ -9,175 +9,184 @@ interface IndustriesPageProps {
 }
 
 export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onRouteChange, selectedIndustryId }) => {
-  const [filter, setFilter] = useState<string>(selectedIndustryId || 'all');
+  const [activeFilter, setActiveFilter] = useState<string>(selectedIndustryId || 'all');
 
-  const filteredIndustries = filter === 'all' 
+  const filteredIndustries = activeFilter === 'all' 
     ? INDUSTRIES 
-    : INDUSTRIES.filter(ind => ind.id === filter);
+    : INDUSTRIES.filter(ind => ind.id === activeFilter);
+
+  const getIndustryIcon = (id: string) => {
+    switch (id) {
+      case 'hospitality': return <Building className="w-5 h-5 text-blue-600" />;
+      case 'healthcare': return <Activity className="w-5 h-5 text-rose-600" />;
+      case 'retail': return <ShoppingBag className="w-5 h-5 text-emerald-600" />;
+      case 'education': return <GraduationCap className="w-5 h-5 text-purple-600" />;
+      case 'enterprise': return <Briefcase className="w-5 h-5 text-blue-600" />;
+      default: return <Layers className="w-5 h-5 text-amber-600" />;
+    }
+  };
 
   return (
-    <div className="pt-28 pb-24 relative overflow-hidden bg-tech-mesh">
+    <div className="pt-28 pb-24 bg-[#F8FAFC] relative overflow-hidden">
+      
+      {/* Light Background Top Glow */}
+      <div className="absolute top-0 inset-x-0 h-96 bg-gradient-to-b from-blue-50/50 via-slate-50/30 to-transparent pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-xs font-mono text-amber-400 mb-4">
-            <Building className="w-3.5 h-3.5" />
-            <span>SECTOR-SPECIFIC INTELLIGENCE</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-heading font-semibold text-blue-700 mb-4">
+            <Building className="w-3.5 h-3.5 text-blue-600" />
+            <span>INDUSTRY-SPECIFIC AUTOMATION SUITES</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-white tracking-tight">
-            INDUSTRY <span className="gold-gradient-text">AUTOMATION SUITES</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-extrabold text-slate-950 tracking-tight">
+            Tailored for <span className="text-blue-600">your industry</span>
           </h1>
-          <p className="mt-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-            Engineered specifically around the operational nuances, regulatory frameworks, and staffing workflows of modern African and international enterprises.
+          <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
+            Discover purpose-engineered multi-agent workflows built specifically for your sector's operational nuances, regulations, and legacy platforms.
           </p>
         </div>
 
-        {/* Industry Filter Buttons */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12 max-w-4xl mx-auto">
-          <button
-            onClick={() => setFilter('all')}
-            className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
-              filter === 'all'
-                ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
-                : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
-            }`}
-          >
-            All Sectors ({INDUSTRIES.length})
-          </button>
-          {INDUSTRIES.map((ind) => (
+        {/* Filter Pills */}
+        <div className="flex flex-wrap justify-center gap-2 mb-16">
+          {[
+            { id: 'all', label: 'All Industries' },
+            { id: 'hospitality', label: 'Hotel & Hospitality' },
+            { id: 'healthcare', label: 'Hospitals & Clinical' },
+            { id: 'education', label: 'Schools & Education' },
+            { id: 'retail', label: 'Retail & Supermarkets' },
+            { id: 'enterprise', label: 'Corporate Logistics' },
+            { id: 'custom', label: 'Custom Workflows' }
+          ].map((tab) => (
             <button
-              key={ind.id}
-              onClick={() => setFilter(ind.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-heading font-bold uppercase tracking-wider transition-all cursor-pointer ${
-                filter === ind.id
-                  ? 'bg-amber-500 text-slate-950 shadow-md shadow-amber-500/20'
-                  : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'
+              key={tab.id}
+              onClick={() => setActiveFilter(tab.id)}
+              className={`px-4 py-2 rounded-xl text-xs font-heading font-semibold transition-all duration-200 cursor-pointer ${
+                activeFilter === tab.id
+                  ? 'bg-blue-600 text-white shadow-xs'
+                  : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200 shadow-2xs hover:bg-slate-50'
               }`}
             >
-              {ind.title.split('&')[0]}
+              {tab.label}
             </button>
           ))}
         </div>
 
-        {/* Detailed Industry Cards List */}
+        {/* Industries Detailed Cards List (Clean White Cards) */}
         <div className="space-y-12">
           {filteredIndustries.map((ind, idx) => (
             <div
               key={ind.id}
-              className="rounded-3xl bg-slate-900/90 border border-slate-800 hover:border-amber-500/40 p-6 sm:p-10 shadow-2xl backdrop-blur-2xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left"
+              className="rounded-3xl bg-white border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden text-left"
             >
-              {/* Left Column: Image & Badges (5 cols) */}
-              <div className="lg:col-span-5 relative">
-                <div className="relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden shadow-xl">
+              <div className="grid grid-cols-1 lg:grid-cols-12">
+                
+                {/* Left Visual Banner with Realistic Sector Image (5 cols) */}
+                <div className="lg:col-span-5 relative h-64 lg:h-auto min-h-[300px] overflow-hidden bg-slate-100">
                   <img 
                     src={ind.image} 
                     alt={ind.title} 
-                    className="w-full h-full object-cover filter brightness-90 hover:scale-105 transition-transform duration-700"
+                    className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-slate-950/20" />
                   
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-slate-950/90 border border-amber-500/40 text-amber-300 font-mono text-[10px] font-bold uppercase">
-                      {ind.badge}
+                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-xs font-heading font-bold text-slate-900 uppercase tracking-wider shadow-xs flex items-center gap-1.5">
+                      {getIndustryIcon(ind.id)}
+                      <span>{ind.badge}</span>
                     </span>
                   </div>
 
-                  <div className="absolute bottom-4 left-4 right-4 grid grid-cols-3 gap-2 py-2 px-3 rounded-xl bg-slate-950/80 backdrop-blur-md border border-slate-800">
-                    {ind.keyBenefits.map((kb, k) => (
-                      <div key={k} className="text-center">
-                        <span className="text-xs sm:text-sm font-heading font-extrabold text-amber-400 block">
-                          {kb.metric}
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-slate-900/80 backdrop-blur-md border border-slate-700 text-center">
+                      {ind.keyBenefits.map((kb, kIdx) => (
+                        <div key={kIdx}>
+                          <span className="text-sm sm:text-base font-heading font-extrabold text-amber-400 block">
+                            {kb.metric}
+                          </span>
+                          <span className="text-[10px] font-mono text-slate-300 block line-clamp-1">
+                            {kb.label}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Content & Automations (7 cols) */}
+                <div className="lg:col-span-7 p-6 sm:p-10 flex flex-col justify-between space-y-6">
+                  <div>
+                    <span className="text-xs font-mono text-blue-700 font-bold block mb-1">
+                      SECTOR 0{idx + 1}
+                    </span>
+                    <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-slate-950">
+                      {ind.title}
+                    </h2>
+                    <p className="text-xs sm:text-sm font-mono text-blue-600 font-medium mt-1">
+                      {ind.subtitle}
+                    </p>
+
+                    <p className="mt-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {ind.description}
+                    </p>
+
+                    {/* Operational Problem vs Librum Automation */}
+                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                      <div className="p-4 rounded-2xl bg-rose-50/70 border border-rose-100">
+                        <span className="text-[10px] font-mono uppercase text-rose-700 font-bold block mb-1">
+                          Manual Pain Point
                         </span>
-                        <span className="text-[8px] font-mono text-slate-400 leading-none block">
-                          {kb.label}
+                        <p className="text-slate-700 leading-snug">
+                          {ind.problem}
+                        </p>
+                      </div>
+
+                      <div className="p-4 rounded-2xl bg-emerald-50/80 border border-emerald-100">
+                        <span className="text-[10px] font-mono uppercase text-emerald-800 font-bold block mb-1">
+                          Librum AI Solution
                         </span>
+                        <p className="text-slate-800 leading-snug font-medium">
+                          {ind.automation}
+                        </p>
                       </div>
-                    ))}
+                    </div>
+
+                    {/* Key Automations List */}
+                    <div className="mt-6 space-y-2 pt-4 border-t border-slate-100">
+                      <span className="text-xs font-mono uppercase text-slate-500 font-bold block mb-2">
+                        Pre-Engineered Automations:
+                      </span>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        {ind.automations.map((auto, aIdx) => (
+                          <div key={aIdx} className="flex items-center gap-2 text-xs text-slate-700">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+                            <span>{auto}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
+
+                  {/* Footer CTA */}
+                  <div className="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <span className="text-xs font-mono text-emerald-700 font-medium">
+                      ✓ Ready for 14-Day Pilot Implementation
+                    </span>
+                    <button
+                      onClick={() => onRouteChange('schedule-demo')}
+                      className="w-full sm:w-auto px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                    >
+                      <span>{ind.ctaText}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+
                 </div>
+
               </div>
-
-              {/* Right Column: Specs & Workflows (7 cols) */}
-              <div className="lg:col-span-7 space-y-4">
-                <div>
-                  <span className="text-xs font-mono text-amber-400 uppercase tracking-widest block font-bold">
-                    SECTOR SUITE 0{idx + 1}
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-heading font-extrabold text-white mt-1">
-                    {ind.title}
-                  </h2>
-                  <p className="text-xs sm:text-sm font-mono text-slate-400 mt-1">
-                    {ind.subtitle}
-                  </p>
-                </div>
-
-                <p className="text-sm text-slate-300 leading-relaxed">
-                  {ind.description}
-                </p>
-
-                {/* Problem / Automation / Impact Framework */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 py-1">
-                  <div className="p-3 rounded-xl bg-slate-950 border border-slate-800 text-xs">
-                    <span className="text-[10px] font-mono text-red-400 font-bold block mb-0.5 uppercase">Problem:</span>
-                    <p className="text-slate-300 leading-snug text-[11px]">{ind.problem}</p>
-                  </div>
-                  <div className="p-3 rounded-xl bg-amber-950/30 border border-amber-500/20 text-xs">
-                    <span className="text-[10px] font-mono text-amber-400 font-bold block mb-0.5 uppercase">Automation:</span>
-                    <p className="text-slate-200 leading-snug text-[11px]">{ind.automation}</p>
-                  </div>
-                  <div className="p-3 rounded-xl bg-emerald-950/30 border border-emerald-500/20 text-xs">
-                    <span className="text-[10px] font-mono text-emerald-400 font-bold block mb-0.5 uppercase">Impact:</span>
-                    <p className="text-emerald-200 leading-snug text-[11px]">{ind.impact}</p>
-                  </div>
-                </div>
-
-                {/* Automations Checklist */}
-                <div>
-                  <span className="text-xs font-mono uppercase text-slate-400 font-bold block mb-2">
-                    Key Autonomous Workflows:
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {ind.automations.map((auto, aIdx) => (
-                      <div key={aIdx} className="flex items-start gap-2 text-xs text-slate-200">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
-                        <span>{auto}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Pipeline Flow Conduit */}
-                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
-                  <span className="text-[10px] font-mono text-amber-300 uppercase tracking-widest block mb-2 font-bold">
-                    Workflow Pipeline:
-                  </span>
-                  <div className="space-y-1.5">
-                    {ind.workflowStages.map((wf, wIdx) => (
-                      <div key={wIdx} className="text-[11px] font-mono text-slate-300 flex items-center gap-1.5 flex-wrap">
-                        <span className="text-amber-400 font-bold">[{wf.from}]</span>
-                        <span className="text-slate-500">→</span>
-                        <span>{wf.action}</span>
-                        <span className="text-slate-500">→</span>
-                        <span className="text-blue-400 font-bold">[{wf.to}]</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Action CTA */}
-                <div className="pt-2 flex items-center gap-3">
-                  <button
-                    onClick={() => onRouteChange('schedule-demo')}
-                    className="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-amber-500/20"
-                  >
-                    <span>{ind.ctaText}</span>
-                  </button>
-                </div>
-              </div>
-
             </div>
           ))}
         </div>
