@@ -29,15 +29,39 @@ const VALID_ROUTES: PageRoute[] = [
 ];
 
 const getRouteFromUrl = (): PageRoute => {
-  const hash = window.location.hash.replace(/^#\/?/, '').trim();
-  if (hash && VALID_ROUTES.includes(hash as PageRoute)) {
-    return hash as PageRoute;
+  // 1. Primary check: clean browser pathname (e.g. /ai-automation or /)
+  const pathname = window.location.pathname.replace(/^\/+|\/+$/g, '').trim();
+  
+  if (!pathname || pathname === 'home' || pathname === 'index.html') {
+    // Check if a legacy hash was passed (e.g. /#ai-automation) and normalize to clean URL
+    const hash = window.location.hash.replace(/^#\/?/, '').trim();
+    if (hash && VALID_ROUTES.includes(hash as PageRoute)) {
+      try {
+        window.history.replaceState({ route: hash }, '', `/${hash}`);
+      } catch {
+        // Fallback if history state restricted
+      }
+      return hash as PageRoute;
+    }
+    return 'home';
   }
-  const pathname = window.location.pathname.replace(/^\//, '').trim();
-  if (pathname && VALID_ROUTES.includes(pathname as PageRoute)) {
+  
+  if (VALID_ROUTES.includes(pathname as PageRoute)) {
     return pathname as PageRoute;
   }
-  return 'home';
+  
+  // 2. Secondary fallback for hash navigation
+  const hash = window.location.hash.replace(/^#\/?/, '').trim();
+  if (hash && VALID_ROUTES.includes(hash as PageRoute)) {
+    try {
+      window.history.replaceState({ route: hash }, '', `/${hash}`);
+    } catch {
+      // Fallback
+    }
+    return hash as PageRoute;
+  }
+
+  return '404';
 };
 
 export const App: React.FC = () => {
@@ -57,22 +81,26 @@ export const App: React.FC = () => {
     const handleLocationChange = () => {
       const route = getRouteFromUrl();
       setCurrentRoute(route);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
-    window.addEventListener('hashchange', handleLocationChange);
     window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
     return () => {
-      window.removeEventListener('hashchange', handleLocationChange);
       window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
     };
   }, []);
 
   const handleRouteChange = (route: PageRoute) => {
     setCurrentRoute(route);
-    if (route === 'home') {
-      window.history.pushState(null, '', window.location.pathname);
-    } else {
-      window.location.hash = route;
+    const targetPath = route === 'home' ? '/' : `/${route}`;
+    if (window.location.pathname !== targetPath) {
+      try {
+        window.history.pushState({ route }, '', targetPath);
+      } catch {
+        // Fallback for non-standard environments
+      }
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
