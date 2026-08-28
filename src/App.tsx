@@ -15,8 +15,33 @@ import { ContactPage } from './pages/ContactPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { ArrowUp, Calendar } from 'lucide-react';
 
+const VALID_ROUTES: PageRoute[] = [
+  'home',
+  'ai-automation',
+  'industries',
+  'solutions',
+  'design',
+  'about',
+  'case-studies',
+  'schedule-demo',
+  'contact',
+  '404'
+];
+
+const getRouteFromUrl = (): PageRoute => {
+  const hash = window.location.hash.replace(/^#\/?/, '').trim();
+  if (hash && VALID_ROUTES.includes(hash as PageRoute)) {
+    return hash as PageRoute;
+  }
+  const pathname = window.location.pathname.replace(/^\//, '').trim();
+  if (pathname && VALID_ROUTES.includes(pathname as PageRoute)) {
+    return pathname as PageRoute;
+  }
+  return 'home';
+};
+
 export const App: React.FC = () => {
-  const [currentRoute, setCurrentRoute] = useState<PageRoute>('home');
+  const [currentRoute, setCurrentRoute] = useState<PageRoute>(getRouteFromUrl);
   const [selectedIndustryId, setSelectedIndustryId] = useState<string | undefined>(undefined);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -28,15 +53,33 @@ export const App: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    const handleLocationChange = () => {
+      const route = getRouteFromUrl();
+      setCurrentRoute(route);
+    };
+
+    window.addEventListener('hashchange', handleLocationChange);
+    window.addEventListener('popstate', handleLocationChange);
+    return () => {
+      window.removeEventListener('hashchange', handleLocationChange);
+      window.removeEventListener('popstate', handleLocationChange);
+    };
+  }, []);
+
   const handleRouteChange = (route: PageRoute) => {
     setCurrentRoute(route);
+    if (route === 'home') {
+      window.history.pushState(null, '', window.location.pathname);
+    } else {
+      window.location.hash = route;
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectIndustry = (industryId: string) => {
     setSelectedIndustryId(industryId);
-    setCurrentRoute('schedule-demo');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    handleRouteChange('schedule-demo');
   };
 
   const scrollToTop = () => {
@@ -44,7 +87,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-900">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden bg-white text-slate-900 flex flex-col justify-between selection:bg-amber-500/20 selection:text-amber-900">
       
       {/* Dynamic SEO Head and Structured Data */}
       <SeoHead currentRoute={currentRoute} />
@@ -131,6 +174,7 @@ export const App: React.FC = () => {
             onClick={scrollToTop}
             className="p-3 rounded-full bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:bg-slate-50 shadow-lg transition-all cursor-pointer hover:scale-110"
             aria-label="Scroll to top"
+            title="Scroll to top"
           >
             <ArrowUp className="w-5 h-5" />
           </button>

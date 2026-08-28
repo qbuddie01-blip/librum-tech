@@ -28,7 +28,7 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'full', className = '', on
             <img 
               src={librumLogoImg} 
               alt="Librum Technologies Limited" 
-              className="h-full w-auto max-w-[240px] sm:max-w-[280px] object-contain"
+              className="h-full w-auto max-w-[220px] sm:max-w-[280px] object-contain"
               loading="lazy"
             />
           </div>
@@ -47,11 +47,11 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'full', className = '', on
         </div>
       ) : (
         /* Default Header / Navbar Logo */
-        <div className="flex items-center bg-slate-950 px-3 py-1.5 rounded-xl border border-slate-800 shadow-sm hover:border-slate-700 transition-colors">
+        <div className="flex items-center bg-slate-950 px-2.5 sm:px-3 py-1.5 rounded-xl border border-slate-800 shadow-sm hover:border-slate-700 transition-colors shrink-0">
           <img 
             src={librumLogoImg} 
             alt="Librum Technologies Limited" 
-            className="h-7 sm:h-8 md:h-8.5 w-auto max-w-[210px] sm:max-w-[250px] object-contain"
+            className="h-6 sm:h-8 w-auto max-w-[140px] sm:max-w-[210px] md:max-w-[250px] object-contain"
             loading="eager"
           />
         </div>

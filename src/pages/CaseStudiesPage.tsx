@@ -17,7 +17,7 @@ export const CaseStudiesPage: React.FC<CaseStudiesPageProps> = ({ onRouteChange 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-heading font-semibold text-blue-700 mb-4">
             <Building2 className="w-3.5 h-3.5 text-blue-600" />
             <span>OPERATIONAL CONCEPTS & BLUEPRINTS</span>
@@ -31,8 +31,8 @@ export const CaseStudiesPage: React.FC<CaseStudiesPageProps> = ({ onRouteChange 
           </p>
         </div>
 
-        {/* Core Case Studies Component */}
-        <CaseStudiesSection onRouteChange={onRouteChange} />
+        {/* Core Case Studies Component with Header Hidden */}
+        <CaseStudiesSection onRouteChange={onRouteChange} hideHeader={true} />
 
         {/* Custom Architecture Proposal CTA (Clean Light Blue Container) */}
         <div className="mt-16 text-center">

@@ -74,19 +74,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
         <div className="text-center max-w-4xl mx-auto space-y-6">
           
           {/* Strategic Positioning Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-xs font-heading font-semibold text-blue-700 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-blue-600" />
-            <span>AI AUTOMATION & DIGITAL TRANSFORMATION</span>
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-[11px] sm:text-xs font-heading font-semibold text-blue-700 shadow-xs max-w-full">
+            <Sparkles className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+            <span className="truncate sm:whitespace-normal">AI AUTOMATION & DIGITAL TRANSFORMATION</span>
           </div>
 
           {/* Clean Human-Centric Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-slate-950 tracking-tight leading-[1.12]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-slate-950 tracking-tight leading-[1.12] break-words">
             Smarter workflows.{' '}
             <span className="text-blue-600">Better business operations.</span>
           </h1>
 
           {/* Professional Clear Subheadline */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto font-sans leading-relaxed">
+          <p className="text-sm sm:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto font-sans leading-relaxed">
             Librum Technologies helps organizations automate repetitive processes, connect fragmented business systems, and improve how teams work using practical AI automation.
           </p>
 
@@ -117,17 +117,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
           </div>
 
           {/* Trust Highlights Strip */}
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 font-medium">
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs text-slate-500 font-medium">
             <span className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
               <span>Connects With Your Existing Software</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-4 h-4 text-blue-600" />
+              <ShieldCheck className="w-4 h-4 text-blue-600 shrink-0" />
               <span>Enterprise Data Privacy & Security</span>
             </span>
             <span className="flex items-center gap-1.5">
-              <Clock className="w-4 h-4 text-amber-600" />
+              <Clock className="w-4 h-4 text-amber-600 shrink-0" />
               <span>Designed for Fast Processing</span>
             </span>
           </div>
@@ -136,12 +136,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
 
         {/* ── HERO INTERACTIVE PIPELINE VISUALIZATION (CLEAN WHITE CARD) ── */}
         <div className="mt-14 max-w-5xl mx-auto">
-          <div className="rounded-3xl bg-white border border-slate-200/90 p-5 sm:p-8 shadow-xl shadow-slate-200/40 relative">
+          <div className="rounded-3xl bg-white border border-slate-200/90 p-4 sm:p-8 shadow-xl shadow-slate-200/40 relative">
             
             {/* Visualizer Header */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-100 pb-5 mb-6">
               <div className="flex items-center gap-2.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                 <span className="text-xs font-heading font-bold uppercase text-slate-900 tracking-wider flex items-center gap-1.5">
                   <Cpu className="w-4 h-4 text-blue-600" />
                   <span>How Connected Automation Works</span>
@@ -154,7 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
                   <button
                     key={tab}
                     onClick={() => setActiveWorkflowTab(tab)}
-                    className={`flex-1 sm:flex-initial px-3.5 py-1.5 rounded-lg text-xs font-heading capitalize font-semibold transition-all duration-200 cursor-pointer text-center ${
+                    className={`flex-1 sm:flex-initial px-3 py-1.5 rounded-lg text-xs font-heading capitalize font-semibold transition-all duration-200 cursor-pointer text-center ${
                       activeWorkflowTab === tab
                         ? 'bg-white text-blue-700 shadow-xs'
                         : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
@@ -232,14 +232,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onRouteChange, onOpenS
             </div>
 
             {/* Bottom Sector Progress Bar */}
-            <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+            <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-500">
               <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-600" />
+                <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
                 <span>Sector Example: <strong className="text-slate-900">{currentWorkflow.industry}</strong></span>
               </span>
-              <span className="text-emerald-700 font-semibold flex items-center gap-1.5 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/80">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Workflow Status: Designed for fast automated processing</span>
+              <span className="text-emerald-700 font-semibold flex items-center gap-1.5 bg-emerald-50 px-2.5 py-1 rounded-xl sm:rounded-full border border-emerald-200/80 text-[11px] sm:text-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+                <span>Automated Workflow Active</span>
               </span>
             </div>
 

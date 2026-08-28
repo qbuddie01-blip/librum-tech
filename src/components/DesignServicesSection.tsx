@@ -37,7 +37,7 @@ export const DesignServicesSection: React.FC<DesignServicesSectionProps> = ({ on
             UI/UX & digital <span className="text-blue-600">interface studio</span>
           </h2>
           <p className="mt-4 text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
-            Intelligent automation requires intuitive interfaces. Alongside our AI automation core, we craft human-centered digital experiences, mobile staff terminals, and executive dashboards.
+            Intelligent automation requires intuitive interfaces. Alongside our AI automation core, we craft human-centered digital experiences, mobile staff interfaces, and executive dashboards.
           </p>
         </div>
 

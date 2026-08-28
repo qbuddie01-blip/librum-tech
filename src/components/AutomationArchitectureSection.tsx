@@ -74,7 +74,7 @@ export const AutomationArchitectureSection: React.FC<AutomationArchitectureSecti
         </div>
 
         {/* 5-Tier Architecture Pipeline Grid (Clean White Cards) */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 relative mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 relative mb-12">
           {pipelineTiers.map((tier, idx) => (
             <div
               key={idx}

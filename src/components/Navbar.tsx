@@ -108,13 +108,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange }) =
           <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => handleNavClick('schedule-demo')}
-              className="sm:hidden px-3 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-heading text-[11px] font-bold tracking-wider uppercase cursor-pointer"
+              className="hidden sm:inline-flex px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading text-xs font-bold tracking-wider uppercase cursor-pointer"
             >
               DEMO
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {menuToggleIcon}
