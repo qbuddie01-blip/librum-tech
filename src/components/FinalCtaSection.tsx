@@ -17,7 +17,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onRouteChange 
         <img 
           src={finalCtaBgImg} 
           alt="" 
-          className="w-full h-full object-cover object-center opacity-30 sm:opacity-40 mix-blend-screen scale-105 pointer-events-none"
+          className="w-full h-full object-cover object-center opacity-30 sm:opacity-40 mix-blend-screen pointer-events-none"
           loading="lazy"
         />
         {/* Deep Navy Vignette & Edge Masks for Seamless Blending and Zero Edge Artifacts */}

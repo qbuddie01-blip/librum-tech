@@ -10,7 +10,7 @@ interface LogoProps {
 export const Logo: React.FC<LogoProps> = ({ variant = 'full', className = '', onClick }) => {
   return (
     <div 
-      className={`inline-flex items-center select-none cursor-pointer transition-all duration-200 hover:opacity-90 active:scale-95 ${className}`}
+      className={`inline-flex items-center select-none cursor-pointer transition-all duration-200 hover:opacity-95 active:scale-98 ${className}`}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
       tabIndex={onClick ? 0 : undefined}
@@ -23,21 +23,21 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'full', className = '', on
       aria-label="Librum Technologies Limited"
     >
       {variant === 'footer' ? (
-        <div className="flex flex-col items-start gap-2">
-          <div className="h-10 sm:h-12 w-auto flex items-center bg-slate-900/60 p-2 rounded-xl border border-slate-800">
+        <div className="flex flex-col items-start gap-2.5">
+          <div className="h-12 sm:h-14 md:h-16 w-auto flex items-center">
             <img 
               src={librumLogoImg} 
               alt="Librum Technologies Limited" 
-              className="h-full w-auto max-w-[220px] sm:max-w-[280px] object-contain"
+              className="h-full w-auto max-w-[260px] sm:max-w-[320px] md:max-w-[380px] object-contain"
               loading="lazy"
             />
           </div>
-          <p className="text-[10px] sm:text-xs font-mono text-amber-400 font-semibold tracking-wider uppercase mt-1">
+          <p className="text-[11px] sm:text-xs font-mono text-amber-400 font-semibold tracking-wider uppercase">
             AUTOMATE • TRANSFORM • SCALE
           </p>
         </div>
       ) : variant === 'mark' ? (
-        <div className="relative h-8 sm:h-9 w-auto flex items-center p-1 rounded-lg bg-slate-950">
+        <div className="relative h-9 sm:h-11 w-auto flex items-center">
           <img 
             src={librumLogoImg} 
             alt="Librum Technologies" 
@@ -46,12 +46,12 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'full', className = '', on
           />
         </div>
       ) : (
-        /* Default Header / Navbar Logo */
-        <div className="flex items-center bg-slate-950 px-2.5 sm:px-3 py-1.5 rounded-xl border border-slate-800 shadow-sm hover:border-slate-700 transition-colors shrink-0">
+        /* Default Header / Navbar Logo (Enlarged, Border-free, Seamless) */
+        <div className="flex items-center shrink-0">
           <img 
             src={librumLogoImg} 
             alt="Librum Technologies Limited" 
-            className="h-6 sm:h-8 w-auto max-w-[140px] sm:max-w-[210px] md:max-w-[250px] object-contain"
+            className="h-8 sm:h-9 md:h-10.5 w-auto max-w-[180px] sm:max-w-[240px] md:max-w-[280px] object-contain"
             loading="eager"
           />
         </div>
@@ -59,3 +59,5 @@ export const Logo: React.FC<LogoProps> = ({ variant = 'full', className = '', on
     </div>
   );
 };
+
+export default Logo;

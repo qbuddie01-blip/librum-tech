@@ -48,13 +48,13 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange }) =
   };
 
   const headerClass = isScrolled 
-    ? 'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-slate-200 py-2.5 shadow-sm' 
-    : 'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-slate-100 py-3.5';
+    ? 'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#060c18]/95 backdrop-blur-md border-b border-slate-800/80 py-2.5 shadow-lg shadow-black/20' 
+    : 'fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#060c18]/90 backdrop-blur-md border-b border-slate-800/40 py-3.5';
 
   const menuToggleIcon = mobileMenuOpen ? (
-    <X className="w-6 h-6 text-slate-900" />
+    <X className="w-6 h-6 text-white" />
   ) : (
-    <Menu className="w-6 h-6 text-slate-900" />
+    <Menu className="w-6 h-6 text-white" />
   );
 
   return (
@@ -75,19 +75,19 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange }) =
                   onClick={() => handleNavClick(item.route)}
                   className={`px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-heading tracking-wide transition-all duration-200 relative group cursor-pointer ${
                     isActive 
-                      ? 'text-blue-600 font-bold bg-blue-50/90' 
-                      : 'text-slate-700 hover:text-blue-600 font-medium hover:bg-slate-50'
+                      ? 'text-white font-bold bg-slate-800/80 shadow-xs' 
+                      : 'text-slate-300 hover:text-white font-medium hover:bg-slate-800/50'
                   }`}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   <span className="flex items-center gap-1.5">
                     {item.highlight && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                     )}
                     {item.label}
                   </span>
                   {isActive && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-0.5 bg-blue-600 rounded-full" />
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-5 h-0.5 bg-amber-400 rounded-full" />
                   )}
                 </button>
               );
@@ -114,7 +114,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange }) =
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-slate-100 text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-slate-800 text-white hover:bg-slate-700 transition-colors cursor-pointer border border-slate-750"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             >
               {menuToggleIcon}
@@ -125,14 +125,14 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange }) =
 
       {mobileMenuOpen && (
         <div 
-          className="lg:hidden fixed inset-x-0 top-16 bottom-0 bg-white border-t border-slate-200 z-40 overflow-y-auto px-5 py-6 flex flex-col justify-between shadow-2xl"
+          className="lg:hidden fixed inset-x-0 top-16 bottom-0 bg-[#060c18] border-t border-slate-800 z-40 overflow-y-auto px-5 py-6 flex flex-col justify-between shadow-2xl"
           role="dialog"
           aria-modal="true"
           aria-label="Mobile menu"
         >
           <div className="space-y-1.5">
-            <div className="px-3 py-2 text-[11px] font-mono uppercase tracking-widest text-blue-600 flex items-center gap-1.5 border-b border-slate-100 pb-3 mb-2 font-semibold">
-              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
+            <div className="px-3 py-2 text-[11px] font-mono uppercase tracking-widest text-amber-400 flex items-center gap-1.5 border-b border-slate-800 pb-3 mb-2 font-semibold">
+              <Sparkles className="w-3.5 h-3.5 text-amber-400" />
               <span>Navigation Menu</span>
             </div>
 
@@ -144,23 +144,23 @@ export const Navbar: React.FC<NavbarProps> = ({ currentRoute, onRouteChange }) =
                   onClick={() => handleNavClick(item.route)}
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left font-heading text-sm tracking-wide transition-all cursor-pointer ${
                     isActive 
-                      ? 'bg-blue-50 text-blue-600 font-bold border border-blue-100' 
-                      : 'text-slate-700 hover:bg-slate-50 hover:text-blue-600 font-medium'
+                      ? 'bg-slate-800/90 text-amber-400 font-bold border border-slate-700' 
+                      : 'text-slate-300 hover:bg-slate-800/60 hover:text-white font-medium'
                   }`}
                 >
                   <span className="flex items-center gap-2">
                     {item.highlight && (
-                      <span className="w-2 h-2 rounded-full bg-blue-600" />
+                      <span className="w-2 h-2 rounded-full bg-amber-400" />
                     )}
                     {item.label}
                   </span>
-                  <ChevronRight className={`w-4 h-4 ${isActive ? 'text-blue-600' : 'text-slate-400'}`} />
+                  <ChevronRight className={`w-4 h-4 ${isActive ? 'text-amber-400' : 'text-slate-500'}`} />
                 </button>
               );
             })}
           </div>
 
-          <div className="pt-6 border-t border-slate-100 mt-6 space-y-3">
+          <div className="pt-6 border-t border-slate-800 mt-6 space-y-3">
             <button
               onClick={() => handleNavClick('schedule-demo')}
               className="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-heading font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
